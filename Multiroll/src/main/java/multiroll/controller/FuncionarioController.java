@@ -1,5 +1,6 @@
 package multiroll.controller;
 
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +15,12 @@ import multiroll.modelo.Funcionario;
 
 @ManagedBean
 @SessionScoped
-public class FuncionarioController {
+public class FuncionarioController implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Funcionario funcionario = new Funcionario();
 	private FuncionarioDAO dao = new FuncionarioDAO();
 	

@@ -1,5 +1,7 @@
 package multiroll.controller;
 
+import java.io.Serializable;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -9,8 +11,12 @@ import multiroll.modelo.Usuario;
 
 @ManagedBean
 @SessionScoped
-public class LoginController{
+public class LoginController implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Usuario usuario = new Usuario();
 
 	public String doEfetuarLogin() {

@@ -1,5 +1,6 @@
 package multiroll.controller;
 
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,8 +16,12 @@ import multiroll.modelo.Servico;
 
 @ManagedBean
 @SessionScoped
-public class ServicoController {
+public class ServicoController implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Servico servico = new Servico();
 	private ServicoDAO dao = new ServicoDAO();
 	private Categoria categoriaSelecionada = new Categoria();

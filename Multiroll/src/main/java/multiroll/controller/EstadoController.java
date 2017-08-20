@@ -1,5 +1,6 @@
 package multiroll.controller;
 
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +15,12 @@ import multiroll.modelo.Estado;
 
 @ManagedBean
 @SessionScoped
-public class EstadoController {
+public class EstadoController implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Estado estado = new Estado();
 	private EstadoDAO dao = new EstadoDAO();
 	

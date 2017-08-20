@@ -53,14 +53,14 @@ public class CategoriaDAO {
     public List<Categoria> listar() throws ClassNotFoundException, SQLException {
         Conexao conexao = new Conexao();
         Connection conn = conexao.conectarNoBancoDados();
-        String sql = "SELECT CAT_ID, CAT_NOME FROM Categorias WHERE CAT_EXCLUIDO IS NULL";
+        String sql = "SELECT c.CAT_ID AS id, c.CAT_NOME AS nome FROM Categorias c WHERE c.CAT_EXCLUIDO IS NULL";
         PreparedStatement ps = conn.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         List<Categoria> listaRetorno = new ArrayList<>();
         while (rs.next()) {
             Categoria categoria = new Categoria();
-            categoria.setId(rs.getLong("CAT_ID"));
-            categoria.setNome(rs.getString("CAT_NOME").trim());
+            categoria.setId(rs.getLong("id"));
+            categoria.setNome(rs.getString("nome").trim());
             listaRetorno.add(categoria);
         }
         rs.close();

@@ -1,5 +1,6 @@
 package multiroll.controller;
 
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +15,12 @@ import multiroll.modelo.FormaPgto;
 
 @ManagedBean
 @SessionScoped
-public class FormaPgtoController {
+public class FormaPgtoController implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private FormaPgto formaPgto = new FormaPgto();
 	private FormaPgtoDAO dao = new FormaPgtoDAO();
 	

@@ -14,10 +14,10 @@
 			<p:toolbar>
 				<p:toolbarGroup>
 					<p:commandButton update="formulario" value="Salvar" id="btnSalvar"
-						actionListener="#{categoriaController.salvar}" />
+						actionListener="#{cidadeController.salvar}" />
 
 					<p:commandButton value="Limpar" update="formulario"
-						action="cadastroCategoria.xhtml" immediate="true" />
+						action="cadastrocidade.xhtml" immediate="true" />
 				</p:toolbarGroup>
 			</p:toolbar>
 
@@ -28,7 +28,7 @@
 					columnClasses="ui-grid-col-1, ui-grid-col-11">
 					
 					<p:outputLabel value="Nome *" />
-					<p:inputText value="#{categoriaController.categoria.nome}"
+					<p:inputText value="#{cidadeController.cidade.nome}"
 						required="true" requiredMessage="O campo nome é obrigatorio!" />
 
 				</p:panelGrid>
@@ -36,33 +36,33 @@
 
 
 
-			<p:dataTable value="#{categoriaController.lista}" paginator="true" rows="10" var="categoria"
+			<p:dataTable value="#{cidadeController.lista}" paginator="true" rows="10" var="cidade"
 				border="1" emptyMessage="Nenhum Registro Encontrado">
 				<p:column>
 					<f:facet name="header">
 						<h:outputText value="Id" style="width=20%"  />
 					</f:facet>
-					<h:outputText value="#{categoria.id}" />
+					<h:outputText value="#{cidade.id}" />
 				</p:column>
 				<p:column>
 					<f:facet name="header">
 						<h:outputText value="Nome" />
 					</f:facet>
-					<h:outputText value="#{categoria.nome}" />
+					<h:outputText value="#{cidade.nome}" />
 				</p:column>
 				<p:column>
 					<f:facet name="header">
 						<h:outputText value="Operação" />
 					</f:facet>
 					<h:commandButton value="Excluir"
-						action="#{categoriaController.excluir}">
-						<f:setPropertyActionListener value="#{categoria}"
-							target="#{categoriaController.categoria}" />
+						action="#{cidadeController.excluir}">
+						<f:setPropertyActionListener value="#{cidade}"
+							target="#{cidadeController.cidade}" />
 					</h:commandButton>
 					<h:commandButton value="Editar"
-						action="#{categoriaController.prepararParaEditar}">
-						<f:setPropertyActionListener value="#{categoria}"
-							target="#{categoriaController.categoria}" />
+						action="#{cidadeController.prepararParaEditar}">
+						<f:setPropertyActionListener value="#{cidade}"
+							target="#{cidadeController.cidade}" />
 					</h:commandButton>
 				</p:column>
 			</p:dataTable>

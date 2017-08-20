@@ -1,5 +1,6 @@
 package multiroll.controller;
 
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +15,13 @@ import multiroll.modelo.Categoria;
 
 @ManagedBean
 @SessionScoped
-public class CategoriaController {
+public class CategoriaController implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private Categoria categoria = new Categoria();
 	private CategoriaDAO dao = new CategoriaDAO();
 	
@@ -68,7 +74,7 @@ public class CategoriaController {
 			e.printStackTrace();
 			exibirMensagem("Erro ao realizar a operação: " + e.getMessage());
 		}
-		return "listaCategoria.xthml";
+		return "cadastroCategoria.xthml";
 	}
 
 	public String prepararParaEditar() {

@@ -1,5 +1,6 @@
 package multiroll.controller;
 
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +20,12 @@ import multiroll.modelo.Endereco;
 
 @ManagedBean
 @SessionScoped
-public class ClienteController {
+public class ClienteController implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Cliente cliente = new Cliente();
 	private Contato contato = new Contato();
 	private Endereco endereco = new Endereco();

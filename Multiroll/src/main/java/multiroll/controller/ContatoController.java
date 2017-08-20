@@ -1,5 +1,6 @@
 package multiroll.controller;
 
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +15,12 @@ import multiroll.modelo.Contato;
 
 @ManagedBean
 @SessionScoped
-public class ContatoController {
+public class ContatoController implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Contato contato = new Contato();
 	private ContatoDAO dao = new ContatoDAO();
 	//private Estado estadoSelecionado = new Estado();

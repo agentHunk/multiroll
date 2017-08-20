@@ -9,11 +9,12 @@
 		<h1 class="aw-page-title">Cadastrar Categorias</h1>
 
 		<h:form id="formulario">
-			<p:messages />
+		
+			<p:growl id="msgm" life="3000" style="z-index:1000;"/>
 
 			<p:toolbar>
 				<p:toolbarGroup>
-					<p:commandButton update="formulario" value="Salvar" id="btnSalvar"
+					<p:commandButton update="msgm, formulario" value="Salvar" id="btnSalvar"
 						actionListener="#{categoriaController.salvar}" />
 
 					<p:commandButton value="Limpar" update="formulario"
@@ -36,7 +37,7 @@
 
 
 
-			<p:dataTable value="#{categoriaController.lista}" paginator="true"
+			<p:dataTable id="tabela" value="#{categoriaController.lista}" paginator="true"
 				rows="10" var="categoria" border="1"
 				emptyMessage="Nenhum Registro Encontrado">
 				<p:column>
@@ -55,16 +56,16 @@
 					<f:facet name="header">
 						<h:outputText value="Operação" />
 					</f:facet>
-					<h:commandButton value="Excluir"
+					<p:commandButton value="Excluir" update="tabela formulario"
 						action="#{categoriaController.excluir}">
 						<f:setPropertyActionListener value="#{categoria}"
 							target="#{categoriaController.categoria}" />
-					</h:commandButton>
-					<h:commandButton value="Editar"
+					</p:commandButton>
+					<p:commandButton value="Editar"
 						action="#{categoriaController.prepararParaEditar}">
 						<f:setPropertyActionListener value="#{categoria}"
 							target="#{categoriaController.categoria}" />
-					</h:commandButton>
+					</p:commandButton>
 				</p:column>
 			</p:dataTable>
 

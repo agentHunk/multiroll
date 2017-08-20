@@ -12,10 +12,10 @@ import java.sql.SQLException;
 public class Conexao {
 
     public Connection conectarNoBancoDados() throws ClassNotFoundException, SQLException {
-        Class.forName("org.postgresql.Driver");
+    	Class.forName("com.mysql.jdbc.Driver");
         Connection conn = null;
-        String url = "jdbc:postgresql://localhost:5432/Multiroll";
-        String usuario = "postgres";
+        String url = "jdbc:mysql://localhost:3306/Multiroll";
+        String usuario = "root";
         String senha = "root";
         conn = DriverManager.getConnection(url, usuario, senha);
         return conn;
