@@ -28,41 +28,50 @@
 					columnClasses="ui-grid-col-1, ui-grid-col-11">
 					
 					<p:outputLabel value="Nome *" />
-					<p:inputText value="#{categoriaController.categoria.nome}"
+					<p:inputText value="#{formaPgtoController.formaPgto.nome}"
 						required="true" requiredMessage="O campo nome é obrigatorio!" />
+						<p:outputLabel value="Sigla *" />
+					<p:inputText value="#{formaPgtoController.formaPgto.sigla}"
+						required="true" requiredMessage="O campo sigla é obrigatorio!" />
 
 				</p:panelGrid>
 			</div>
 
 
 
-			<p:dataTable value="#{categoriaController.lista}" paginator="true" rows="10" var="categoria"
+			<p:dataTable value="#{formaPgtoController.lista}" paginator="true" rows="10" var="formaPgto"
 				border="1" emptyMessage="Nenhum Registro Encontrado">
 				<p:column>
 					<f:facet name="header">
 						<h:outputText value="Id" style="width=20%"  />
 					</f:facet>
-					<h:outputText value="#{categoria.id}" />
+					<h:outputText value="#{formaPgto.id}" />
 				</p:column>
 				<p:column>
 					<f:facet name="header">
 						<h:outputText value="Nome" />
 					</f:facet>
-					<h:outputText value="#{categoria.nome}" />
+					<h:outputText value="#{formaPgto.nome}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Sigla" />
+					</f:facet>
+					<h:outputText value="#{formaPgto.sigla}" />
 				</p:column>
 				<p:column>
 					<f:facet name="header">
 						<h:outputText value="Operação" />
 					</f:facet>
 					<h:commandButton value="Excluir"
-						action="#{categoriaController.excluir}">
-						<f:setPropertyActionListener value="#{categoria}"
-							target="#{categoriaController.categoria}" />
+						action="#{formaPgtoController.excluir}">
+						<f:setPropertyActionListener value="#{formaPgto}"
+							target="#{formaPgtoController.formaPgto}" />
 					</h:commandButton>
 					<h:commandButton value="Editar"
-						action="#{categoriaController.prepararParaEditar}">
-						<f:setPropertyActionListener value="#{categoria}"
-							target="#{categoriaController.categoria}" />
+						action="#{formaPgtoController.prepararParaEditar}">
+						<f:setPropertyActionListener value="#{formaPgto}"
+							target="#{formaPgtoController.formaPgto}" />
 					</h:commandButton>
 				</p:column>
 			</p:dataTable>

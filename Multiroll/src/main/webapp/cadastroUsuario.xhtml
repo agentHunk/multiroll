@@ -4,9 +4,9 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/templates/Layout.xhtml">
-	
-		<ui:define name="corpo">
-<h1 class="aw-page-title">Cadastrar Serviço</h1>
+
+	<ui:define name="corpo">
+		<h1 class="aw-page-title">Cadastrar Serviço</h1>
 
 		<h:form id="formulario">
 			<p:messages />
@@ -14,10 +14,10 @@
 			<p:toolbar>
 				<p:toolbarGroup>
 					<p:commandButton update="formulario" value="Salvar" id="btnSalvar"
-						actionListener="#{categoriaController.salvar}" />
+						actionListener="#{usuarioController.salvar}" />
 
 					<p:commandButton value="Limpar" update="formulario"
-						action="cadastroCategoria.xhtml" immediate="true" />
+						action="cadastrousuario.xhtml" immediate="true" />
 				</p:toolbarGroup>
 			</p:toolbar>
 
@@ -26,48 +26,68 @@
 					style="margin-top: 20px; margin-bottom: 40px"
 					styleClass="panelgrid-noborder"
 					columnClasses="ui-grid-col-1, ui-grid-col-11">
-					
+
 					<p:outputLabel value="Nome *" />
-					<p:inputText value="#{categoriaController.categoria.nome}"
+					<p:inputText value="#{usuarioController.usuario.login}"
 						required="true" requiredMessage="O campo nome é obrigatorio!" />
+					<p:outputLabel value="Senha *" />
+					<p:password value="#{usuarioController.usuario.senha}"
+						required="true" requiredMessage="O campo senha é obrigatorio!" />
+					<p:outputLabel value="Funcionário: *" />
+					<p:selectOneMenu required="true"
+						requiredMessage="O campo Funcionário é obrigatorio!"
+						value="#{usuarioController.funcionarioSelecionado}"
+						converter="funcionarioConverter">
+						<f:selectItem itemLabel="SELECIONE" />
+						<f:selectItems value="#{funcionarioController.lista}"
+							var="funcionario" itemLabel="#{funcionario.nome}"
+							itemValue="#{funcionario}" />
+					</p:selectOneMenu>
 
 				</p:panelGrid>
 			</div>
 
 
 
-			<p:dataTable value="#{categoriaController.lista}" paginator="true" rows="10" var="categoria"
-				border="1" emptyMessage="Nenhum Registro Encontrado">
+			<p:dataTable value="#{usuarioController.lista}" paginator="true"
+				rows="10" var="usuario" border="1"
+				emptyMessage="Nenhum Registro Encontrado"> 
 				<p:column>
 					<f:facet name="header">
-						<h:outputText value="Id" style="width=20%"  />
+						<h:outputText value="Id" style="width=20%" />
 					</f:facet>
-					<h:outputText value="#{categoria.id}" />
+					<h:outputText value="#{usuario.id}" />
 				</p:column>
 				<p:column>
 					<f:facet name="header">
 						<h:outputText value="Nome" />
 					</f:facet>
-					<h:outputText value="#{categoria.nome}" />
+					<h:outputText value="#{usuario.login}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Funcionário" />
+					</f:facet>
+					<h:outputText value="#{usuario.funcionario.nome}" />
 				</p:column>
 				<p:column>
 					<f:facet name="header">
 						<h:outputText value="Operação" />
 					</f:facet>
 					<h:commandButton value="Excluir"
-						action="#{categoriaController.excluir}">
-						<f:setPropertyActionListener value="#{categoria}"
-							target="#{categoriaController.categoria}" />
+						action="#{usuarioController.excluir}">
+						<f:setPropertyActionListener value="#{usuario}"
+							target="#{usuarioController.usuario}" />
 					</h:commandButton>
 					<h:commandButton value="Editar"
-						action="#{categoriaController.prepararParaEditar}">
-						<f:setPropertyActionListener value="#{categoria}"
-							target="#{categoriaController.categoria}" />
+						action="#{usuarioController.prepararParaEditar}">
+						<f:setPropertyActionListener value="#{usuario}"
+							target="#{usuarioController.usuario}" />
 					</h:commandButton>
 				</p:column>
 			</p:dataTable>
 
 		</h:form>
 	</ui:define>
-	
+
 </ui:composition>

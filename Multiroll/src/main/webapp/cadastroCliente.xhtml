@@ -4,9 +4,9 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/templates/Layout.xhtml">
-	
-		<ui:define name="corpo">
-<h1 class="aw-page-title">Cadastrar Cliente</h1>
+
+	<ui:define name="corpo">
+		<h1 class="aw-page-title">Cadastrar Cliente</h1>
 
 		<h:form id="formulario">
 			<p:messages />
@@ -14,10 +14,10 @@
 			<p:toolbar>
 				<p:toolbarGroup>
 					<p:commandButton update="formulario" value="Salvar" id="btnSalvar"
-						actionListener="#{categoriaController.salvar}" />
+						actionListener="#{clienteController.salvar}" />
 
 					<p:commandButton value="Limpar" update="formulario"
-						action="cadastroCategoria.xhtml" immediate="true" />
+						action="cadastrocliente.xhtml" immediate="true" />
 				</p:toolbarGroup>
 			</p:toolbar>
 
@@ -26,48 +26,202 @@
 					style="margin-top: 20px; margin-bottom: 40px"
 					styleClass="panelgrid-noborder"
 					columnClasses="ui-grid-col-1, ui-grid-col-11">
-					
-					<p:outputLabel value="Nome *" />
-					<p:inputText value="#{categoriaController.categoria.nome}"
-						required="true" requiredMessage="O campo nome é obrigatorio!" />
+
+					<p:outputLabel value="Razão Social: *" />
+					<p:inputText required="true"
+						requiredMessage="O campo Razão Social é obrigatorio!"
+						value="#{clienteController.cliente.razaoSocial}" />
+					<p:outputLabel value="Nome Fantasia: *" />
+					<p:inputText required="true"
+						requiredMessage="O campo Nome Fantasia é obrigatorio!"
+						value="#{clienteController.cliente.nomeFantasia}" />
+					<p:outputLabel value="Responsável: *" />
+					<p:inputText required="true"
+						requiredMessage="O campo Responsável é obrigatorio!"
+						value="#{clienteController.cliente.nomeFuncionario}" />
+					<p:outputLabel value="CPF: *" />
+					<p:inputText required="true"
+						requiredMessage="O campo CPF é obrigatorio!"
+						value="#{clienteController.cliente.cpf}" />
+					<p:outputLabel value="CNPJ: *" />
+					<p:inputText value="#{clienteController.cliente.cnpj}" />
+
+					<p:outputLabel value="Telefone Fixo" />
+					<p:inputText required="true"
+						requiredMessage="O campo Telefone Fixo é obrigatorio!"
+						value="#{clienteController.contato.telFixo}" />
+					<p:outputLabel value="Telefone Fixo 2" />
+					<p:inputText value="#{clienteController.contato.telFixo2}" />
+					<p:outputLabel value="Celular" />
+					<p:inputText required="true"
+						requiredMessage="O campo Celular é obrigatorio!"
+						value="#{clienteController.contato.telCel}" />
+					<p:outputLabel value="Celular" />
+					<p:inputText value="#{clienteController.contato.telCel2}" />
+					<p:outputLabel value="WhatsApp" />
+					<p:inputText value="#{clienteController.contato.whatsApp}" />
+					<p:outputLabel value="Email" />
+					<p:inputText required="true"
+						requiredMessage="O campo e-mail é obrigatorio!"
+						value="#{clienteController.contato.email}" />
+					<p:outputLabel value="Email 2" />
+					<p:inputText value="#{clienteController.contato.email2}" />
+					<p:outputLabel value="Observação" />
+					<p:inputText value="#{clienteController.contato.observacao}" />
+
+					<p:outputLabel value="Endereço" />
+					<p:inputText required="true"
+						requiredMessage="O campo Endereço é obrigatorio!"
+						value="#{clienteController.endereco.endereco}" />
+					<p:outputLabel value="Complemento" />
+					<p:inputText required="true"
+						requiredMessage="O campo Complemento é obrigatorio!"
+						value="#{clienteController.endereco.complemento}" />
+					<p:outputLabel value="Número" />
+					<p:inputText required="true"
+						requiredMessage="O campo Número é obrigatorio!"
+						value="#{clienteController.endereco.numero}" />
+					<p:outputLabel value="CEP" />
+					<p:inputText required="true"
+						requiredMessage="O campo CEP é obrigatorio!"
+						value="#{clienteController.endereco.cep}" />
+					<p:outputLabel value="Cidade: *" />
+					<p:selectOneMenu required="true"
+						requiredMessage="O campo Cidade é obrigatorio!"
+						value="#{clienteController.cidadeSelecionada}"
+						converter="cidadeConverter">
+						<f:selectItem itemLabel="SELECIONE" />
+						<f:selectItems value="#{cidadeController.lista}" var="cidade"
+							itemLabel="#{cidade.nome}" itemValue="#{cidade}" />
+					</p:selectOneMenu>
+					<p:outputLabel value="Observação" />
+					<p:inputText value="#{clienteController.endereco.observacao}" />
 
 				</p:panelGrid>
 			</div>
 
-
-
-			<p:dataTable value="#{categoriaController.lista}" paginator="true" rows="10" var="categoria"
-				border="1" emptyMessage="Nenhum Registro Encontrado">
+			<p:dataTable value="#{clienteController.lista}" paginator="true"
+				rows="10" var="cliente" border="1"
+				emptyMessage="Nenhum Registro Encontrado">
 				<p:column>
 					<f:facet name="header">
-						<h:outputText value="Id" style="width=20%"  />
+						<h:outputText value="Id" style="width=20%" />
 					</f:facet>
-					<h:outputText value="#{categoria.id}" />
+					<h:outputText value="#{cliente.id}" />
+				</p:column>
+				<!-- 				CLIENTE -->
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Id" />
+					</f:facet>
+					<h:outputText value="#{cliente.id}" />
 				</p:column>
 				<p:column>
 					<f:facet name="header">
-						<h:outputText value="Nome" />
+						<h:outputText value="Razão Social" />
 					</f:facet>
-					<h:outputText value="#{categoria.nome}" />
+					<h:outputText value="#{cliente.razaoSocial}" />
 				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Nome Fantasia" />
+					</f:facet>
+					<h:outputText value="#{cliente.nomeFantasia}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Responsável" />
+					</f:facet>
+					<h:outputText value="#{cliente.nomeFuncionario}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="CPF" />
+					</f:facet>
+					<h:outputText value="#{cliente.cpf}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="CNPJ" />
+					</f:facet>
+					<h:outputText value="#{cliente.cnpj}" />
+				</p:column>
+				<!-- 				CONTATO -->
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Telefone" />
+					</f:facet>
+					<h:outputText value="#{cliente.contato.telFixo}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Celular" />
+					</f:facet>
+					<h:outputText value="#{cliente.contato.telCel}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="E-mail" />
+					</f:facet>
+					<h:outputText value="#{cliente.contato.email}" />
+				</p:column>
+				<!-- 				ENDERECO -->
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Endereço" />
+					</f:facet>
+					<h:outputText value="#{cliente.endereco.endereco}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Complemento" />
+					</f:facet>
+					<h:outputText value="#{cliente.endereco.complemento}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Número" />
+					</f:facet>
+					<h:outputText value="#{cliente.endereco.numero}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="CEP" />
+					</f:facet>
+					<h:outputText value="#{cliente.endereco.cep}" />
+				</p:column>
+				<!-- 				CIDADE -->
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Cidade" />
+					</f:facet>
+					<h:outputText value="#{cliente.endereco.cidade.nome}" />
+				</p:column>
+				<!-- 				ESTADO -->
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="UF" />
+					</f:facet>
+					<h:outputText value="#{cliente.endereco.cidade.estado.uf}" />
+				</p:column>
+
 				<p:column>
 					<f:facet name="header">
 						<h:outputText value="Operação" />
 					</f:facet>
 					<h:commandButton value="Excluir"
-						action="#{categoriaController.excluir}">
-						<f:setPropertyActionListener value="#{categoria}"
-							target="#{categoriaController.categoria}" />
+						action="#{clienteController.excluir}">
+						<f:setPropertyActionListener value="#{cliente}"
+							target="#{clienteController.cliente}" />
 					</h:commandButton>
 					<h:commandButton value="Editar"
-						action="#{categoriaController.prepararParaEditar}">
-						<f:setPropertyActionListener value="#{categoria}"
-							target="#{categoriaController.categoria}" />
+						action="#{clienteController.prepararParaEditar}">
+						<f:setPropertyActionListener value="#{cliente}"
+							target="#{clienteController.cliente}" />
 					</h:commandButton>
 				</p:column>
 			</p:dataTable>
-
 		</h:form>
 	</ui:define>
-	
+
 </ui:composition>

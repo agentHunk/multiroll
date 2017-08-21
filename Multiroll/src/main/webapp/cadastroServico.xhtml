@@ -4,9 +4,9 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/templates/Layout.xhtml">
-	
-		<ui:define name="corpo">
-<h1 class="aw-page-title">Cadastrar Serviço</h1>
+
+	<ui:define name="corpo">
+		<h1 class="aw-page-title">Cadastrar Serviço</h1>
 
 		<h:form id="formulario">
 			<p:messages />
@@ -14,10 +14,10 @@
 			<p:toolbar>
 				<p:toolbarGroup>
 					<p:commandButton update="formulario" value="Salvar" id="btnSalvar"
-						actionListener="#{categoriaController.salvar}" />
+						actionListener="#{servicoController.salvar}" />
 
 					<p:commandButton value="Limpar" update="formulario"
-						action="cadastroCategoria.xhtml" immediate="true" />
+						action="cadastroservico.xhtml" immediate="true" />
 				</p:toolbarGroup>
 			</p:toolbar>
 
@@ -26,48 +26,65 @@
 					style="margin-top: 20px; margin-bottom: 40px"
 					styleClass="panelgrid-noborder"
 					columnClasses="ui-grid-col-1, ui-grid-col-11">
-					
+
 					<p:outputLabel value="Nome *" />
-					<p:inputText value="#{categoriaController.categoria.nome}"
+					<p:inputText value="#{servicoController.servico.nome}"
 						required="true" requiredMessage="O campo nome é obrigatorio!" />
+					<p:outputLabel value="Categoria: *" />
+					<p:selectOneMenu required="true"
+						requiredMessage="O campo Categoria é obrigatorio!"
+						value="#{servicoController.categoriaSelecionada}"
+						converter="categoriaConverter">
+						<f:selectItem itemLabel="SELECIONE" />
+						<f:selectItems value="#{categoriaController.lista}"
+							var="categoria" itemLabel="#{categoria.nome}"
+							itemValue="#{categoria}" />
+					</p:selectOneMenu>
 
 				</p:panelGrid>
 			</div>
 
 
 
-			<p:dataTable value="#{categoriaController.lista}" paginator="true" rows="10" var="categoria"
-				border="1" emptyMessage="Nenhum Registro Encontrado">
+			<p:dataTable value="#{servicoController.lista}" paginator="true"
+				rows="10" var="servico" border="1"
+				emptyMessage="Nenhum Registro Encontrado">
 				<p:column>
 					<f:facet name="header">
-						<h:outputText value="Id" style="width=20%"  />
+						<h:outputText value="Id" style="width=20%" />
 					</f:facet>
-					<h:outputText value="#{categoria.id}" />
+					<h:outputText value="#{servico.id}" />
 				</p:column>
 				<p:column>
 					<f:facet name="header">
 						<h:outputText value="Nome" />
 					</f:facet>
-					<h:outputText value="#{categoria.nome}" />
+					<h:outputText value="#{servico.nome}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Categoria" />
+					</f:facet>
+					<h:outputText value="#{servico.categoria.nome}" />
 				</p:column>
 				<p:column>
 					<f:facet name="header">
 						<h:outputText value="Operação" />
 					</f:facet>
 					<h:commandButton value="Excluir"
-						action="#{categoriaController.excluir}">
-						<f:setPropertyActionListener value="#{categoria}"
-							target="#{categoriaController.categoria}" />
+						action="#{servicoController.excluir}">
+						<f:setPropertyActionListener value="#{servico}"
+							target="#{servicoController.servico}" />
 					</h:commandButton>
 					<h:commandButton value="Editar"
-						action="#{categoriaController.prepararParaEditar}">
-						<f:setPropertyActionListener value="#{categoria}"
-							target="#{categoriaController.categoria}" />
+						action="#{servicoController.prepararParaEditar}">
+						<f:setPropertyActionListener value="#{servico}"
+							target="#{servicoController.servico}" />
 					</h:commandButton>
 				</p:column>
 			</p:dataTable>
 
 		</h:form>
 	</ui:define>
-	
+
 </ui:composition>
