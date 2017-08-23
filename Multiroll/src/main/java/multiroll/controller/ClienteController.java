@@ -105,6 +105,14 @@ public class ClienteController implements Serializable{
 		} else {
 			try {
 				daoCliente.alterar(cliente);
+				
+				endereco.setCliente(cliente);
+				endereco.setCidade(getCidadeSelecionada());
+				daoEndereco.alterar(endereco);
+				
+				contato.setCliente(cliente);
+				daoContato.alterar(contato);
+
 				limparCampos();
 				exibirMensagem("Alteração realizada  com sucesso !");
 			} catch (ClassNotFoundException | SQLException e) {
@@ -126,7 +134,7 @@ public class ClienteController implements Serializable{
 			e.printStackTrace();
 			exibirMensagem("Erro ao realizar a operação: " + e.getMessage());
 		}
-		return "listaCliente.xthml";
+		return "cadastroCliente.xthml";
 	}
 
 	public List<Cliente> getLista() {
@@ -141,8 +149,8 @@ public class ClienteController implements Serializable{
 	}
 	
 	public String prepararParaEditar() {
-//		cliente.setContato(cliente.getContato());
-//		cliente.setEndereco(cliente.getEndereco());
+		contato = cliente.getContato();
+		endereco = cliente.getEndereco();
 		cidadeSelecionada = cliente.getEndereco().getCidade();
 		
 		return "cadastroCliente.xhtml";

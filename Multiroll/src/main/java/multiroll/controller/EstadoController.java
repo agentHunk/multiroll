@@ -73,7 +73,7 @@ public class EstadoController implements Serializable{
 			e.printStackTrace();
 			exibirMensagem("Erro ao realizar a operação: " + e.getMessage());
 		}
-		return "listaEstado.xthml";
+		return "cadastroEstado.xthml";
 	}
 
 	public String prepararParaEditar() {

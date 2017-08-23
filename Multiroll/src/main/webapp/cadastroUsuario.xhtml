@@ -13,11 +13,11 @@
 
 			<p:toolbar>
 				<p:toolbarGroup>
-					<p:commandButton update="formulario" value="Salvar" id="btnSalvar"
+					<p:commandButton update="formulario formlista" value="Salvar" id="btnSalvar"
 						actionListener="#{usuarioController.salvar}" />
 
 					<p:commandButton value="Limpar" update="formulario"
-						action="cadastrousuario.xhtml" immediate="true" />
+						actionListener="#{usuarioController.limparCampos}"/>
 				</p:toolbarGroup>
 			</p:toolbar>
 
@@ -28,10 +28,10 @@
 					columnClasses="ui-grid-col-1, ui-grid-col-11">
 
 					<p:outputLabel value="Nome *" />
-					<p:inputText value="#{usuarioController.usuario.login}"
+					<p:inputText value="#{usuarioController.usuario.login}" maxlength="45"
 						required="true" requiredMessage="O campo nome é obrigatorio!" />
 					<p:outputLabel value="Senha *" />
-					<p:password value="#{usuarioController.usuario.senha}"
+					<p:password value="#{usuarioController.usuario.senha}" maxlength="45"
 						required="true" requiredMessage="O campo senha é obrigatorio!" />
 					<p:outputLabel value="Funcionário: *" />
 					<p:selectOneMenu required="true"
@@ -46,12 +46,13 @@
 
 				</p:panelGrid>
 			</div>
-
+		</h:form>
+		<h:form id="formlista">
 
 
 			<p:dataTable value="#{usuarioController.lista}" paginator="true"
 				rows="10" var="usuario" border="1"
-				emptyMessage="Nenhum Registro Encontrado"> 
+				emptyMessage="Nenhum Registro Encontrado">
 				<p:column>
 					<f:facet name="header">
 						<h:outputText value="Id" style="width=20%" />

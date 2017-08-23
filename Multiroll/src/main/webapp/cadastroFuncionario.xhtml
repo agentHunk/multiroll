@@ -13,11 +13,11 @@
 
 			<p:toolbar>
 				<p:toolbarGroup>
-					<p:commandButton update="formulario" value="Salvar" id="btnSalvar"
+					<p:commandButton update="formulario formlista" value="Salvar" id="btnSalvar"
 						actionListener="#{funcionarioController.salvar}" />
 
 					<p:commandButton value="Limpar" update="formulario"
-						action="cadastrofuncionario.xhtml" immediate="true" />
+						actionListener="#{funcionarioController.limparCampos}" />
 				</p:toolbarGroup>
 			</p:toolbar>
 
@@ -28,15 +28,16 @@
 					columnClasses="ui-grid-col-1, ui-grid-col-11">
 
 					<p:outputLabel value="Nome *" />
-					<p:inputText value="#{funcionarioController.funcionario.nome}"
+					<p:inputText value="#{funcionarioController.funcionario.nome}" maxlength="45"
 						required="true" requiredMessage="O campo nome é obrigatorio!" />
 					<p:outputLabel value="Cargo *" />
-					<p:inputText value="#{funcionarioController.funcionario.cargo}"
+					<p:inputText value="#{funcionarioController.funcionario.cargo}" maxlength="45"
 						required="true" requiredMessage="O campo cargo é obrigatorio!" />
 
 				</p:panelGrid>
 			</div>
-
+		</h:form>
+		<h:form id="formlista">
 			<p:dataTable value="#{funcionarioController.lista}" paginator="true"
 				rows="10" var="funcionario" border="1"
 				emptyMessage="Nenhum Registro Encontrado">
@@ -62,7 +63,7 @@
 					<f:facet name="header">
 						<h:outputText value="Operação" />
 					</f:facet>
-					<h:commandButton value="Excluir"
+					<h:commandButton value="Excluir" update="formlista"
 						action="#{funcionarioController.excluir}">
 						<f:setPropertyActionListener value="#{funcionario}"
 							target="#{funcionarioController.funcionario}" />
@@ -74,6 +75,9 @@
 					</h:commandButton>
 				</p:column>
 			</p:dataTable>
+
+
+
 
 		</h:form>
 	</ui:define>

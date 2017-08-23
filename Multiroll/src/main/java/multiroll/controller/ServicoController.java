@@ -97,7 +97,7 @@ public class ServicoController implements Serializable{
 			exibirMensagem("Erro ao realizar a  operação : " + e.getMessage());
 			e.printStackTrace();
 		}
-		return "listaServico.xhtml";
+		return "cadastroServico.xhtml";
 	}
 
 	public String prepararParaEditar() {

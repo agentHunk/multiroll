@@ -13,106 +13,120 @@
 
 			<p:toolbar>
 				<p:toolbarGroup>
-					<p:commandButton update="formulario" value="Salvar" id="btnSalvar"
+					<p:commandButton update="formulario formlista" value="Salvar" id="btnSalvar"
 						actionListener="#{clienteController.salvar}" />
 
 					<p:commandButton value="Limpar" update="formulario"
-						action="cadastrocliente.xhtml" immediate="true" />
+						actionListener="#{clienteController.limparCampos}" />
 				</p:toolbarGroup>
 			</p:toolbar>
 
 			<div class="ui-fluid">
-				<p:panelGrid id="capaPanel" columns="2" layout="grid"
-					style="margin-top: 20px; margin-bottom: 40px"
-					styleClass="panelgrid-noborder"
-					columnClasses="ui-grid-col-1, ui-grid-col-11">
+				<p:tabView>
+					<p:tab title="Dados da Empresa">
+						<p:panelGrid id="capaPanel1" columns="2" layout="grid"
+							style="margin-top: 20px; margin-bottom: 40px"
+							styleClass="panelgrid-noborder"
+							columnClasses="ui-grid-col-2, ui-grid-col-6">
 
-					<p:outputLabel value="Razão Social: *" />
-					<p:inputText required="true"
-						requiredMessage="O campo Razão Social é obrigatorio!"
-						value="#{clienteController.cliente.razaoSocial}" />
-					<p:outputLabel value="Nome Fantasia: *" />
-					<p:inputText required="true"
-						requiredMessage="O campo Nome Fantasia é obrigatorio!"
-						value="#{clienteController.cliente.nomeFantasia}" />
-					<p:outputLabel value="Responsável: *" />
-					<p:inputText required="true"
-						requiredMessage="O campo Responsável é obrigatorio!"
-						value="#{clienteController.cliente.nomeFuncionario}" />
-					<p:outputLabel value="CPF: *" />
-					<p:inputText required="true"
-						requiredMessage="O campo CPF é obrigatorio!"
-						value="#{clienteController.cliente.cpf}" />
-					<p:outputLabel value="CNPJ: *" />
-					<p:inputText value="#{clienteController.cliente.cnpj}" />
+							<p:outputLabel value="Razão Social: *" />
+							<p:inputText required="true"
+								requiredMessage="O campo Razão Social é obrigatorio!"
+								value="#{clienteController.cliente.razaoSocial}" maxlength="80"/>
+							<p:outputLabel value="Nome Fantasia: *" />
+							<p:inputText required="true" maxlength="80"
+								requiredMessage="O campo Nome Fantasia é obrigatorio!"
+								value="#{clienteController.cliente.nomeFantasia}" />
+							<p:outputLabel value="Responsável: *" />
+							<p:inputText required="true" maxlength="60"
+								requiredMessage="O campo Responsável é obrigatorio!"
+								value="#{clienteController.cliente.nomeFuncionario}" />
+							<p:outputLabel value="CPF: *" />
+							<p:inputText required="true" maxlength="14"
+								requiredMessage="O campo CPF é obrigatorio!"
+								value="#{clienteController.cliente.cpf}" />
+							<p:outputLabel value="CNPJ: *" />
+							<p:inputText value="#{clienteController.cliente.cnpj}" maxlength="18"/>
 
-					<p:outputLabel value="Telefone Fixo" />
-					<p:inputText required="true"
-						requiredMessage="O campo Telefone Fixo é obrigatorio!"
-						value="#{clienteController.contato.telFixo}" />
-					<p:outputLabel value="Telefone Fixo 2" />
-					<p:inputText value="#{clienteController.contato.telFixo2}" />
-					<p:outputLabel value="Celular" />
-					<p:inputText required="true"
-						requiredMessage="O campo Celular é obrigatorio!"
-						value="#{clienteController.contato.telCel}" />
-					<p:outputLabel value="Celular" />
-					<p:inputText value="#{clienteController.contato.telCel2}" />
-					<p:outputLabel value="WhatsApp" />
-					<p:inputText value="#{clienteController.contato.whatsApp}" />
-					<p:outputLabel value="Email" />
-					<p:inputText required="true"
-						requiredMessage="O campo e-mail é obrigatorio!"
-						value="#{clienteController.contato.email}" />
-					<p:outputLabel value="Email 2" />
-					<p:inputText value="#{clienteController.contato.email2}" />
-					<p:outputLabel value="Observação" />
-					<p:inputText value="#{clienteController.contato.observacao}" />
+						</p:panelGrid>
+					</p:tab>
 
-					<p:outputLabel value="Endereço" />
-					<p:inputText required="true"
-						requiredMessage="O campo Endereço é obrigatorio!"
-						value="#{clienteController.endereco.endereco}" />
-					<p:outputLabel value="Complemento" />
-					<p:inputText required="true"
-						requiredMessage="O campo Complemento é obrigatorio!"
-						value="#{clienteController.endereco.complemento}" />
-					<p:outputLabel value="Número" />
-					<p:inputText required="true"
-						requiredMessage="O campo Número é obrigatorio!"
-						value="#{clienteController.endereco.numero}" />
-					<p:outputLabel value="CEP" />
-					<p:inputText required="true"
-						requiredMessage="O campo CEP é obrigatorio!"
-						value="#{clienteController.endereco.cep}" />
-					<p:outputLabel value="Cidade: *" />
-					<p:selectOneMenu required="true"
-						requiredMessage="O campo Cidade é obrigatorio!"
-						value="#{clienteController.cidadeSelecionada}"
-						converter="cidadeConverter">
-						<f:selectItem itemLabel="SELECIONE" />
-						<f:selectItems value="#{cidadeController.lista}" var="cidade"
-							itemLabel="#{cidade.nome}" itemValue="#{cidade}" />
-					</p:selectOneMenu>
-					<p:outputLabel value="Observação" />
-					<p:inputText value="#{clienteController.endereco.observacao}" />
+					<p:tab title="Contatos">
+						<p:panelGrid id="capaPanel2" columns="2" layout="grid"
+							style="margin-top: 20px; margin-bottom: 40px"
+							styleClass="panelgrid-noborder"
+							columnClasses="ui-grid-col-2, ui-grid-col-6">
 
-				</p:panelGrid>
+							<p:outputLabel value="Telefone Fixo:" />
+							<p:inputText required="true" size="70" maxlength="17"
+								requiredMessage="O campo Telefone Fixo é obrigatorio!"
+								value="#{clienteController.contato.telFixo}" />
+							<p:outputLabel value="Telefone Fixo 2:" />
+							<p:inputText value="#{clienteController.contato.telFixo2}" maxlength="17"/>
+							<p:outputLabel value="Celular:" />
+							<p:inputText required="true" maxlength="17"
+								requiredMessage="O campo Celular é obrigatorio!"
+								value="#{clienteController.contato.telCel}" />
+							<p:outputLabel value="Celular:" />
+							<p:inputText value="#{clienteController.contato.telCel2}" maxlength="17"/>
+							<p:outputLabel value="WhatsApp:" />
+							<p:inputText value="#{clienteController.contato.whatsApp}" maxlength="17"/>
+							<p:outputLabel value="Email:" />
+							<p:inputText required="true" maxlength="65"
+								requiredMessage="O campo e-mail é obrigatorio!"
+								value="#{clienteController.contato.email}" />
+							<p:outputLabel value="Email 2:" />
+							<p:inputText value="#{clienteController.contato.email2}" maxlength="65"/>
+							<p:outputLabel value="Observação" />
+							<p:inputText value="#{clienteController.contato.observacao}" maxlength="200"/>
+						</p:panelGrid>
+					</p:tab>
+
+					<p:tab title="Endereço">
+						<p:panelGrid id="capaPanel3" columns="2" layout="grid"
+							style="margin-top: 20px; margin-bottom: 40px"
+							styleClass="panelgrid-noborder"
+							columnClasses="ui-grid-col-2, ui-grid-col-6">
+
+							<p:outputLabel value="Endereço:" />
+							<p:inputText required="true" maxlength="50"
+								requiredMessage="O campo Endereço é obrigatorio!"
+								value="#{clienteController.endereco.endereco}" />
+							<p:outputLabel value="Complemento:" />
+							<p:inputText required="true" maxlength="100"
+								requiredMessage="O campo Complemento é obrigatorio!"
+								value="#{clienteController.endereco.complemento}" />
+							<p:outputLabel value="Número:" />
+							<p:inputText required="true" maxlength="12"
+								requiredMessage="O campo Número é obrigatorio!"
+								value="#{clienteController.endereco.numero}" />
+							<p:outputLabel value="CEP:" />
+							<p:inputText required="true" maxlength="10"
+								requiredMessage="O campo CEP é obrigatorio!"
+								value="#{clienteController.endereco.cep}" />
+							<p:outputLabel value="Cidade: *" />
+							<p:selectOneMenu required="true"
+								requiredMessage="O campo Cidade é obrigatorio!"
+								value="#{clienteController.cidadeSelecionada}"
+								converter="cidadeConverter">
+								<f:selectItem itemLabel="SELECIONE" />
+								<f:selectItems value="#{cidadeController.lista}" var="cidade"
+									itemLabel="#{cidade.nome}" itemValue="#{cidade}" />
+							</p:selectOneMenu>
+							<p:outputLabel value="Observação:" />
+							<p:inputText value="#{clienteController.endereco.observacao}" />
+						</p:panelGrid>
+					</p:tab>
+				</p:tabView>
 			</div>
-
+		</h:form>
+		<h:form id="formlista">
 			<p:dataTable value="#{clienteController.lista}" paginator="true"
 				rows="10" var="cliente" border="1"
 				emptyMessage="Nenhum Registro Encontrado">
-				<p:column>
+				<p:column width="5%">
 					<f:facet name="header">
 						<h:outputText value="Id" style="width=20%" />
-					</f:facet>
-					<h:outputText value="#{cliente.id}" />
-				</p:column>
-				<!-- 				CLIENTE -->
-				<p:column>
-					<f:facet name="header">
-						<h:outputText value="Id" />
 					</f:facet>
 					<h:outputText value="#{cliente.id}" />
 				</p:column>
@@ -205,15 +219,16 @@
 					<h:outputText value="#{cliente.endereco.cidade.estado.uf}" />
 				</p:column>
 
-				<p:column>
+				<p:column width="10%">
 					<f:facet name="header">
-						<h:outputText value="Operação" />
+						<h:outputText value="Operações" />
 					</f:facet>
 					<h:commandButton value="Excluir"
 						action="#{clienteController.excluir}">
 						<f:setPropertyActionListener value="#{cliente}"
 							target="#{clienteController.cliente}" />
 					</h:commandButton>
+
 					<h:commandButton value="Editar"
 						action="#{clienteController.prepararParaEditar}">
 						<f:setPropertyActionListener value="#{cliente}"

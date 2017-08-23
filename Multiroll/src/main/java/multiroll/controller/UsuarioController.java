@@ -99,7 +99,7 @@ public class UsuarioController implements Serializable{
 			exibirMensagem("Erro ao realizar a  operação : " + e.getMessage());
 			e.printStackTrace();
 		}
-		return "listaUsuario.xhtml";
+		return "cadastroUsuario.xhtml";
 	}
 
 	public String prepararParaEditar() {

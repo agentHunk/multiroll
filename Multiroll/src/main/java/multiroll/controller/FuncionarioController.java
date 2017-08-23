@@ -73,7 +73,7 @@ public class FuncionarioController implements Serializable{
 			e.printStackTrace();
 			exibirMensagem("Erro ao realizar a operação: " + e.getMessage());
 		}
-		return "listaFuncionario.xthml";
+		return "cadastroFuncionario.xthml";
 	}
 
 	public String prepararParaEditar() {

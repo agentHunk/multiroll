@@ -4,20 +4,20 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/templates/Layout.xhtml">
-	
-		<ui:define name="corpo">
-<h1 class="aw-page-title">Cadastrar Forma de Pagamento</h1>
+
+	<ui:define name="corpo">
+		<h1 class="aw-page-title">Cadastrar Forma de Pagamento</h1>
 
 		<h:form id="formulario">
 			<p:messages />
 
 			<p:toolbar>
 				<p:toolbarGroup>
-					<p:commandButton update="formulario" value="Salvar" id="btnSalvar"
-						actionListener="#{formaPgtoController.salvar}" />
+					<p:commandButton update="formulario formlista" value="Salvar"
+						id="btnSalvar" actionListener="#{formaPgtoController.salvar}" />
 
 					<p:commandButton value="Limpar" update="formulario"
-						action="cadastroFormaPgto.xhtml" immediate="true" />
+						actionListener="#{formaPgtoController.limparCampos}"  />
 				</p:toolbarGroup>
 			</p:toolbar>
 
@@ -26,24 +26,26 @@
 					style="margin-top: 20px; margin-bottom: 40px"
 					styleClass="panelgrid-noborder"
 					columnClasses="ui-grid-col-1, ui-grid-col-11">
-					
+
 					<p:outputLabel value="Nome *" />
-					<p:inputText value="#{formaPgtoController.formaPgto.nome}"
+					<p:inputText value="#{formaPgtoController.formaPgto.nome}" maxlength="45"
 						required="true" requiredMessage="O campo nome é obrigatorio!" />
-						<p:outputLabel value="Sigla *" />
-					<p:inputText value="#{formaPgtoController.formaPgto.sigla}"
+					<p:outputLabel value="Sigla *" />
+					<p:inputText value="#{formaPgtoController.formaPgto.sigla}" maxlength="10"
 						required="true" requiredMessage="O campo sigla é obrigatorio!" />
 
 				</p:panelGrid>
 			</div>
 
+		</h:form>
+		<h:form id="formlista">
 
-
-			<p:dataTable value="#{formaPgtoController.lista}" paginator="true" rows="10" var="formaPgto"
-				border="1" emptyMessage="Nenhum Registro Encontrado">
+			<p:dataTable value="#{formaPgtoController.lista}" paginator="true"
+				rows="10" var="formaPgto" border="1"
+				emptyMessage="Nenhum Registro Encontrado">
 				<p:column>
 					<f:facet name="header">
-						<h:outputText value="Id" style="width=20%"  />
+						<h:outputText value="Id" style="width=20%" />
 					</f:facet>
 					<h:outputText value="#{formaPgto.id}" />
 				</p:column>
@@ -78,5 +80,5 @@
 
 		</h:form>
 	</ui:define>
-	
+
 </ui:composition>

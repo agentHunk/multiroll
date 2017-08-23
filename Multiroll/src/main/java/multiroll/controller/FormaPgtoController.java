@@ -74,7 +74,7 @@ public class FormaPgtoController implements Serializable{
 			e.printStackTrace();
 			exibirMensagem("Erro ao realizar a operação: " + e.getMessage());
 		}
-		return "listaFormaPgto.xthml";
+		return "cadastroFormaPgto.xthml";
 	}
 
 	public String prepararParaEditar() {

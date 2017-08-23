@@ -13,11 +13,11 @@
 
 			<p:toolbar>
 				<p:toolbarGroup>
-					<p:commandButton update="formulario" value="Salvar" id="btnSalvar"
-						actionListener="#{cidadeController.salvar}" />
+					<p:commandButton update="formulario formlista" value="Salvar"
+						id="btnSalvar" actionListener="#{cidadeController.salvar}" />
 
 					<p:commandButton value="Limpar" update="formulario"
-						action="cadastrocidade.xhtml" immediate="true" />
+						actionListener="#{cidadeController.limparCampos}" />
 				</p:toolbarGroup>
 			</p:toolbar>
 
@@ -29,7 +29,7 @@
 
 					<p:outputLabel value="Nome *" />
 					<p:inputText value="#{cidadeController.cidade.nome}"
-						required="true" requiredMessage="O campo nome é obrigatorio!" />
+						required="true" requiredMessage="O campo nome é obrigatorio!" maxlength="45"/>
 					<p:outputLabel value="Estado: *" />
 					<p:selectOneMenu required="true"
 						requiredMessage="O campo Estado é obrigatorio!"
@@ -43,7 +43,8 @@
 				</p:panelGrid>
 			</div>
 
-
+		</h:form>
+		<h:form id="formlista">
 
 			<p:dataTable value="#{cidadeController.lista}" paginator="true"
 				rows="10" var="cidade" border="1"

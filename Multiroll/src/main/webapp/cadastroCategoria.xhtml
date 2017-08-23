@@ -9,16 +9,16 @@
 		<h1 class="aw-page-title">Cadastrar Categorias</h1>
 
 		<h:form id="formulario">
-		
-			<p:growl id="msgm" life="3000" style="z-index:1000;"/>
+
+			<p:growl id="msgm" life="3000" style="z-index:1000;" />
 
 			<p:toolbar>
 				<p:toolbarGroup>
-					<p:commandButton update="msgm, formulario" value="Salvar" id="btnSalvar"
-						actionListener="#{categoriaController.salvar}" />
+					<p:commandButton update="msgm, formulario formlista" value="Salvar"
+						id="btnSalvar" actionListener="#{categoriaController.salvar}" />
 
 					<p:commandButton value="Limpar" update="formulario"
-						action="cadastroCategoria.xhtml" immediate="true" />
+						actionListener="#{categoriaController.limparCampos}"/>
 				</p:toolbarGroup>
 			</p:toolbar>
 
@@ -30,15 +30,14 @@
 
 					<p:outputLabel value="Nome *" />
 					<p:inputText value="#{categoriaController.categoria.nome}"
-						required="true" requiredMessage="O campo nome é obrigatorio!" />
+						required="true" requiredMessage="O campo nome é obrigatorio!" maxlength="45" />
 
 				</p:panelGrid>
 			</div>
-
-
-
-			<p:dataTable id="tabela" value="#{categoriaController.lista}" paginator="true"
-				rows="10" var="categoria" border="1"
+		</h:form>
+		<h:form id="formlista">
+			<p:dataTable id="tabela" value="#{categoriaController.lista}"
+				paginator="true" rows="10" var="categoria" border="1"
 				emptyMessage="Nenhum Registro Encontrado">
 				<p:column>
 					<f:facet name="header">
@@ -56,16 +55,16 @@
 					<f:facet name="header">
 						<h:outputText value="Operação" />
 					</f:facet>
-					<p:commandButton value="Excluir" update="tabela formulario"
+					<h:commandButton value="Excluir" update="tabela"
 						action="#{categoriaController.excluir}">
 						<f:setPropertyActionListener value="#{categoria}"
 							target="#{categoriaController.categoria}" />
-					</p:commandButton>
-					<p:commandButton value="Editar"
+					</h:commandButton>
+					<h:commandButton value="Editar"
 						action="#{categoriaController.prepararParaEditar}">
 						<f:setPropertyActionListener value="#{categoria}"
 							target="#{categoriaController.categoria}" />
-					</p:commandButton>
+					</h:commandButton>
 				</p:column>
 			</p:dataTable>
 

@@ -97,7 +97,7 @@ public class CidadeController implements Serializable{
 			exibirMensagem("Erro ao realizar a  operação : " + e.getMessage());
 			e.printStackTrace();
 		}
-		return "listaCidade.xhtml";
+		return "cadastroCidade.xhtml";
 	}
 
 	public String prepararParaEditar() {

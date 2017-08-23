@@ -13,11 +13,11 @@
 
 			<p:toolbar>
 				<p:toolbarGroup>
-					<p:commandButton update="formulario" value="Salvar" id="btnSalvar"
-						actionListener="#{servicoController.salvar}" />
+					<p:commandButton update="formulario formlista" value="Salvar"
+						id="btnSalvar" actionListener="#{servicoController.salvar}" />
 
 					<p:commandButton value="Limpar" update="formulario"
-						action="cadastroservico.xhtml" immediate="true" />
+						actionListener="#{servicoController.limparCampos}" />
 				</p:toolbarGroup>
 			</p:toolbar>
 
@@ -28,7 +28,7 @@
 					columnClasses="ui-grid-col-1, ui-grid-col-11">
 
 					<p:outputLabel value="Nome *" />
-					<p:inputText value="#{servicoController.servico.nome}"
+					<p:inputText value="#{servicoController.servico.nome}" maxlength="45"
 						required="true" requiredMessage="O campo nome é obrigatorio!" />
 					<p:outputLabel value="Categoria: *" />
 					<p:selectOneMenu required="true"
@@ -43,7 +43,8 @@
 
 				</p:panelGrid>
 			</div>
-
+		</h:form>
+		<h:form id="formlista">
 
 
 			<p:dataTable value="#{servicoController.lista}" paginator="true"
