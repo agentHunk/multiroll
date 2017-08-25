@@ -1,0 +1,35 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:form>  
+
+
+
+<p:growl id="messages" showDetail="false"/>
+
+    <p:menu styleClass="menuvertical">
+    	
+    	<p:submenu label="MENU" >
+        	<p:menuitem value="inicio" outcome="home" icon="ui-icon-disk" />
+        </p:submenu>
+        
+        <p:submenu label="CADASTROS" >
+            <p:menuitem value="Categoria" outcome="cadastroCategoria" icon="ui-icon-disk" />
+            <p:menuitem value="Cidade" outcome="cadastroCidade" icon="ui-icon-arrowrefresh-1-w"/>
+            <p:menuitem value="Cliente" outcome="cadastroCliente" icon="ui-icon-arrowrefresh-1-w"/>
+            <p:menuitem value="Funcionário" outcome="cadastroFuncionario" icon="ui-icon-arrowrefresh-1-w"/>
+            <p:menuitem value="Serviço" outcome="cadastroServico" icon="ui-icon-arrowrefresh-1-w"/>
+        </p:submenu>
+        
+
+        <p:submenu label="PAINEL DE CONTROLE">
+            <p:menuitem value="Forma de Pagamento" outcome="cadastroFormaPgto" icon="ui-icon-home"/>
+            <p:menuitem value="Usuário" outcome="cadastroUsuario" icon="ui-icon-star"/>
+        </p:submenu>
+    </p:menu>
+</h:form>
+
+</ui:composition>

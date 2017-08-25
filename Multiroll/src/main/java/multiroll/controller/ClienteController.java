@@ -74,6 +74,7 @@ public class ClienteController implements Serializable{
 		cliente = new Cliente();
 		contato = new Contato();
 		endereco = new Endereco();
+		cidadeSelecionada = new Cidade();
 	}
 	
 	private void exibirMensagem(String mensagem) {
