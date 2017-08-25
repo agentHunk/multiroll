@@ -10,11 +10,11 @@
 
 		<h:form id="formulario">
 
-			<p:growl id="msgm" life="3000" style="z-index:1000;" />
+			<p:messages />
 
 			<p:toolbar>
 				<p:toolbarGroup>
-					<p:commandButton update="msgm, formulario formlista" value="Salvar"
+					<p:commandButton update="formulario formlista" value="Salvar"
 						id="btnSalvar" actionListener="#{categoriaController.salvar}" />
 
 					<p:commandButton value="Limpar" update="formulario"

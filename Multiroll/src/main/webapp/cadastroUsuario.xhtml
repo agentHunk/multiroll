@@ -16,7 +16,7 @@
 					<p:commandButton update="formulario formlista" value="Salvar" id="btnSalvar"
 						actionListener="#{usuarioController.salvar}" />
 
-					<p:commandButton value="Limpar" update="formulario"
+					<p:commandButton value="Limpar" update="formulario" action="cadastroUsuario.xhtml" immediate="true"
 						actionListener="#{usuarioController.limparCampos}"/>
 				</p:toolbarGroup>
 			</p:toolbar>

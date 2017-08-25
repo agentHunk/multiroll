@@ -13,10 +13,10 @@
 
 			<p:toolbar>
 				<p:toolbarGroup>
-					<p:commandButton update="formulario formlista" value="Salvar"
+					<p:commandButton update="formulario formlista" value="Salvar" 
 						id="btnSalvar" actionListener="#{servicoController.salvar}" />
 
-					<p:commandButton value="Limpar" update="formulario"
+					<p:commandButton value="Limpar" update="formulario" action="cadastroServico.xhtml" immediate="true"
 						actionListener="#{servicoController.limparCampos}" />
 				</p:toolbarGroup>
 			</p:toolbar>
