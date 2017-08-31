@@ -60,7 +60,7 @@ public class UsuarioDAO {
         Connection conn = conexao.conectarNoBancoDados();
         String sql = "SELECT u.USU_ID AS uid, u.USU_LOGIN AS ulogin, f.FUN_ID AS fid, f.FUN_NOME AS fnome, f.FUN_CARGO AS fcargo "
                 + "FROM Usuarios u "
-                + "INNER JOIN Funcionarios f ON u.USU_IDFUN = f.FUN_ID";
+                + "INNER JOIN Funcionarios f ON u.USU_IDFUN = f.FUN_ID ORDER BY u.USU_LOGIN";
         PreparedStatement ps = conn.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         List<Usuario> listaRetorno = new ArrayList<>();

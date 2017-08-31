@@ -55,7 +55,7 @@ public class FormaPgtoDAO {
     public List<FormaPgto> listar() throws ClassNotFoundException, SQLException {
         Conexao conexao = new Conexao();
         Connection conn = conexao.conectarNoBancoDados();
-        String sql = "SELECT PGTO_ID, PGTO_NOME, PGTO_SIGLA FROM Forma_pgtos WHERE PGTO_EXCLUIDO IS NULL";
+        String sql = "SELECT PGTO_ID, PGTO_NOME, PGTO_SIGLA FROM Forma_pgtos WHERE PGTO_EXCLUIDO IS NULL ORDER BY PGTO_NOME";
         PreparedStatement ps = conn.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         List<FormaPgto> listaRetorno = new ArrayList<>();

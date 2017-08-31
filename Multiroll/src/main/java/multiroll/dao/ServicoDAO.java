@@ -59,7 +59,7 @@ public class ServicoDAO {
         String sql = "SELECT s.SER_ID AS sid, s.SER_TIPO AS stipo, c.CAT_ID AS cid, c.CAT_NOME AS cnome "
                 + "FROM Servicos s "
                 + "INNER JOIN Categorias c ON s.SER_IDCAR = c.CAT_ID "
-                + "WHERE SER_EXCLUIDO IS NULL;";
+                + "WHERE SER_EXCLUIDO IS NULL ORDER BY s.SER_TIPO;";
         PreparedStatement ps = conn.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         List<Servico> listaRetorno = new ArrayList<>();

@@ -88,7 +88,7 @@ public class ClienteDAO {
 				+ "    INNER JOIN Contatos con ON cli.CLI_ID = con.CON_IDCLI\n"
 				+ "    INNER JOIN Cidades ci ON e.END_IDCID = ci.CID_ID\n"
 				+ "    INNER JOIN Estados est ON est.EST_ID = ci.CID_IDEST\n" + "WHERE"
-				+ "	   cli.CLI_EXCLUIDO IS NULL";
+				+ "	   cli.CLI_EXCLUIDO IS NULL ORDER BY cli.CLI_RAZAO";
 
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();

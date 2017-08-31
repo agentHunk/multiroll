@@ -55,7 +55,7 @@ public class FuncionarioDAO {
     public List<Funcionario> listar() throws ClassNotFoundException, SQLException {
         Conexao conexao = new Conexao();
         Connection conn = conexao.conectarNoBancoDados();
-        String sql = "SELECT FUN_ID, FUN_NOME, FUN_CARGO FROM Funcionarios WHERE FUN_EXCLUIDO IS NULL";
+        String sql = "SELECT FUN_ID, FUN_NOME, FUN_CARGO FROM Funcionarios WHERE FUN_EXCLUIDO IS NULL ORDER BY FUN_NOME";
         PreparedStatement ps = conn.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         List<Funcionario> listaRetorno = new ArrayList<>();

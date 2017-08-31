@@ -60,7 +60,7 @@ public class CidadeDAO {
                 + "es.EST_ID AS esid, es.EST_NOME AS estado, es.EST_UF AS uf "
                 + "FROM Cidades c "
                 + "INNER JOIN Estados es ON es.EST_ID = c.CID_IDEST "
-                + "WHERE CID_EXCLUIDO IS NULL;";
+                + "WHERE CID_EXCLUIDO IS NULL ORDER BY c.CID_NOME;";
         PreparedStatement ps = conn.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         List<Cidade> listaRetorno = new ArrayList<>();

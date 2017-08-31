@@ -53,7 +53,7 @@ public class CategoriaDAO {
     public List<Categoria> listar() throws ClassNotFoundException, SQLException {
         Conexao conexao = new Conexao();
         Connection conn = conexao.conectarNoBancoDados();
-        String sql = "SELECT c.CAT_ID AS id, c.CAT_NOME AS nome FROM Categorias c WHERE c.CAT_EXCLUIDO IS NULL";
+        String sql = "SELECT c.CAT_ID AS id, c.CAT_NOME AS nome FROM Categorias c WHERE c.CAT_EXCLUIDO IS NULL ORDER BY c.CAT_NOME";
         PreparedStatement ps = conn.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         List<Categoria> listaRetorno = new ArrayList<>();
