@@ -45,9 +45,8 @@
 							<p:inputMask id="cpf" required="true" maxlength="14" mask="999.999.999-99"
 								requiredMessage="O campo CPF é obrigatorio!"
 								value="#{clienteController.cliente.cpf}" />
-							<p:outputLabel value="CNPJ: *" />
-							<p:inputText value="#{clienteController.cliente.cnpj}" maxlength="18"/>
-
+							<p:outputLabel for="cnpj" value="CNPJ: *" />
+							<p:inputMask id="cnpj" value="#{clienteController.cliente.cnpj}" maxlength="18" mask="99.999.999/9999-99"/>
 						</p:panelGrid>
 					</p:tab>
 
