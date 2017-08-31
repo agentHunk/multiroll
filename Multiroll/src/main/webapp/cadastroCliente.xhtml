@@ -38,12 +38,9 @@
 								requiredMessage="O campo Nome Fantasia é obrigatorio!"
 								value="#{clienteController.cliente.nomeFantasia}" />
 							<p:outputLabel value="Responsável: *" />
-							<p:inputText required="true" maxlength="60"
-								requiredMessage="O campo Responsável é obrigatorio!"
-								value="#{clienteController.cliente.nomeFuncionario}" />
+							<p:inputText maxlength="60" value="#{clienteController.cliente.nomeFuncionario}" />
 							<p:outputLabel for="cpf" value="CPF: *" />
-							<p:inputMask id="cpf" required="true" maxlength="14" mask="999.999.999-99"
-								requiredMessage="O campo CPF é obrigatorio!"
+							<p:inputMask id="cpf" maxlength="14" mask="999.999.999-99"
 								value="#{clienteController.cliente.cpf}" />
 							<p:outputLabel for="cnpj" value="CNPJ: *" />
 							<p:inputMask id="cnpj" value="#{clienteController.cliente.cnpj}" maxlength="18" mask="99.999.999/9999-99"/>
@@ -57,14 +54,14 @@
 							columnClasses="ui-grid-col-2, ui-grid-col-6">
 
 							<p:outputLabel for="tel" value="Telefone Fixo:" />
-							<p:inputMask id="tel" required="true" size="70" maxlength="17" mask="(99)9999-9999" requiredMessage="O campo Telefone Fixo é obrigatorio!"
+							<p:inputMask id="tel" size="70" maxlength="17" mask="(99)9999-9999"
 								value="#{clienteController.contato.telFixo}" />
 							
 							<p:outputLabel for="tel2" value="Telefone Fixo 2:" />
 							<p:inputMask id="tel2" value="#{clienteController.contato.telFixo2}" maxlength="17" mask="(99)9999-9999"/>
 							
 							<p:outputLabel for="cel" value="Celular:" />
-							<p:inputMask id="cel" required="true" maxlength="17" mask="(99)99999-9999" requiredMessage="O campo Celular é obrigatorio!" value="#{clienteController.contato.telCel}" />
+							<p:inputMask id="cel" maxlength="17" mask="(99)99999-9999" value="#{clienteController.contato.telCel}" />
 							
 							<p:outputLabel for="cel2" value="Celular:" />
 							<p:inputMask id="cel2" value="#{clienteController.contato.telCel2}" mask="(99)99999-9999" maxlength="17"/>
@@ -73,9 +70,7 @@
 							<p:inputMask id="what" value="#{clienteController.contato.whatsApp}" mask="(99)99999-9999" maxlength="17"/>
 							
 							<p:outputLabel value="Email:" />
-							<p:inputText required="true" maxlength="65"
-								requiredMessage="O campo e-mail é obrigatorio!"
-								value="#{clienteController.contato.email}" />
+							<p:inputText maxlength="65" value="#{clienteController.contato.email}" />
 							<p:outputLabel value="Email 2:" />
 							<p:inputText value="#{clienteController.contato.email2}" maxlength="65"/>
 							<p:outputLabel value="Observação" />
@@ -102,8 +97,7 @@
 								requiredMessage="O campo Número é obrigatorio!"
 								value="#{clienteController.endereco.numero}" />
 							<p:outputLabel for="cep" value="CEP:" />
-							<p:inputMask id="cep" required="true" maxlength="10" mask="99.999-999"
-								requiredMessage="O campo CEP é obrigatorio!"
+							<p:inputMask id="cep" maxlength="10" mask="99.999-999"
 								value="#{clienteController.endereco.cep}" />
 							<p:outputLabel value="Cidade: *" />
 							<p:selectOneMenu required="true"
