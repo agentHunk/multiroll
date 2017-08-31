@@ -57,11 +57,11 @@
 							columnClasses="ui-grid-col-2, ui-grid-col-6">
 
 							<p:outputLabel for="tel" value="Telefone Fixo:" />
-							<p:inputMask id="tel" required="true" size="70" maxlength="17" mask="(99)99999-9999" requiredMessage="O campo Telefone Fixo é obrigatorio!"
+							<p:inputMask id="tel" required="true" size="70" maxlength="17" mask="(99)9999-9999" requiredMessage="O campo Telefone Fixo é obrigatorio!"
 								value="#{clienteController.contato.telFixo}" />
 							
 							<p:outputLabel for="tel2" value="Telefone Fixo 2:" />
-							<p:inputMask id="tel2" value="#{clienteController.contato.telFixo2}" maxlength="17" mask="(99)99999-9999"/>
+							<p:inputMask id="tel2" value="#{clienteController.contato.telFixo2}" maxlength="17" mask="(99)9999-9999"/>
 							
 							<p:outputLabel for="cel" value="Celular:" />
 							<p:inputMask id="cel" required="true" maxlength="17" mask="(99)99999-9999" requiredMessage="O campo Celular é obrigatorio!" value="#{clienteController.contato.telCel}" />
