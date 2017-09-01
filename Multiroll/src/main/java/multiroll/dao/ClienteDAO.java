@@ -130,8 +130,8 @@ public class ClienteDAO {
 			cliente.setRazaoSocial(rs.getString("razao").trim());
 			cliente.setNomeFantasia(rs.getString("fantasia").trim());
 			cliente.setNomeFuncionario(rs.getString("funcionario").trim());
-			cliente.setCpf(rs.getString("cpf").trim());
-			cliente.setCnpj(rs.getString("cnpj").trim());
+			cliente.setCpf(rs.getString("cpf"));
+			cliente.setCnpj(rs.getString("cnpj"));
 			cliente.setEndereco(endereco);
 			cliente.setContato(contato);
 			
