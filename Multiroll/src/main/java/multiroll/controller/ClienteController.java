@@ -85,6 +85,13 @@ public class ClienteController implements Serializable{
 	public String salvar() {
 		if (cliente.getId() == null) {
 			try {
+				
+				String cpf = validaCpf(cliente.getCpf());
+				String cnpj = validaCnpj(cliente.getCnpj());
+				
+				cliente.setCpf(cpf);
+				cliente.setCnpj(cnpj);
+				
 				Long lidCliente = daoCliente.incluir(cliente);
 				cliente.setId(lidCliente);
 				
@@ -155,5 +162,19 @@ public class ClienteController implements Serializable{
 		cidadeSelecionada = cliente.getEndereco().getCidade();
 		
 		return "cadastroCliente.xhtml";
+	}
+	
+	public String validaCpf (String cpf) {
+		if(cpf.equalsIgnoreCase("")) {
+			cpf = null;
+		}
+		return cpf;
+	}
+	
+	public String validaCnpj (String cnpj) {
+		if(cnpj.equalsIgnoreCase("")) {
+			cnpj = null;
+		}
+		return cnpj;
 	}
 }
