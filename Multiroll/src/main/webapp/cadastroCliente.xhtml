@@ -130,93 +130,93 @@
 			<p:dataTable value="#{clienteController.lista}" paginator="true"
 				scrollable="true" scrollWidth="100%" scrollHeight="auto" rows="10"
 				var="cliente" border="1" emptyMessage="Nenhum Registro Encontrado">
-				<p:column width="50">
+				<p:column width="150" filterBy="#{cliente.id}">
 					<f:facet name="header">
 						<h:outputText value="Id" style="width=20%" />
 					</f:facet>
 					<h:outputText value="#{cliente.id}" />
 				</p:column>
-				<p:column width="300">
+				<p:column width="300" filterBy="#{cliente.razaoSocial}">
 					<f:facet name="header">
 						<h:outputText value="Razão Social" />
 					</f:facet>
 					<h:outputText value="#{cliente.razaoSocial}" />
 				</p:column>
-				<p:column width="300">
+				<p:column width="300" filterBy="#{cliente.nomeFantasia}">
 					<f:facet name="header">
 						<h:outputText value="Nome Fantasia" />
 					</f:facet>
 					<h:outputText value="#{cliente.nomeFantasia}" />
 				</p:column>
-				<p:column width="110">
+				<p:column width="110" filterBy="#{cliente.ie}">
 					<f:facet name="header">
 						<h:outputText value="Inscrição Estadual" />
 					</f:facet>
 					<h:outputText value="#{cliente.ie}" />
 				</p:column>
-				<p:column width="200">
+				<p:column width="200" filterBy="#{cliente.nomeFuncionario}">
 					<f:facet name="header">
 						<h:outputText value="Responsável" />
 					</f:facet>
 					<h:outputText value="#{cliente.nomeFuncionario}" />
 				</p:column>
-				<p:column width="120">
+				<p:column width="120" filterBy="#{cliente.cpf}">
 					<f:facet name="header">
 						<h:outputText value="CPF" />
 					</f:facet>
 					<h:outputText value="#{cliente.cpf}" />
 				</p:column>
-				<p:column width="125">
+				<p:column width="125" filterBy="#{cliente.cnpj}">
 					<f:facet name="header">
 						<h:outputText value="CNPJ" />
 					</f:facet>
 					<h:outputText value="#{cliente.cnpj}" />
 				</p:column>
 				<!-- 				CONTATO -->
-				<p:column width="120">
+				<p:column width="120" filterBy="#{cliente.contato.telFixo}">
 					<f:facet name="header">
 						<h:outputText value="Telefone" />
 					</f:facet>
 					<h:outputText value="#{cliente.contato.telFixo}" />
 				</p:column>
-				<p:column width="120">
+				<p:column width="120" filterBy="#{cliente.contato.telCel}">
 					<f:facet name="header">
 						<h:outputText value="Celular" />
 					</f:facet>
 					<h:outputText value="#{cliente.contato.telCel}" />
 				</p:column>
-				<p:column width="200">
+				<p:column width="200" filterBy="#{cliente.contato.email}">
 					<f:facet name="header">
 						<h:outputText value="E-mail" />
 					</f:facet>
 					<h:outputText value="#{cliente.contato.email}" />
 				</p:column>
 				<!-- 				ENDERECO -->
-				<p:column width="200">
+				<p:column width="200" filterBy="#{cliente.endereco.endereco}">
 					<f:facet name="header">
 						<h:outputText value="Endereço" />
 					</f:facet>
 					<h:outputText value="#{cliente.endereco.endereco}" />
 				</p:column>
-				<p:column width="200">
+				<p:column width="200" filterBy="#{cliente.endereco.complemento}">
 					<f:facet name="header">
 						<h:outputText value="Complemento" />
 					</f:facet>
 					<h:outputText value="#{cliente.endereco.complemento}" />
 				</p:column>
-				<p:column width="200">
+				<p:column width="200" filterBy="#{cliente.endereco.bairro}">
 					<f:facet name="header">
 						<h:outputText value="Bairro" />
 					</f:facet>
 					<h:outputText value="#{cliente.endereco.bairro}" />
 				</p:column>
-				<p:column width="80">
+				<p:column width="80" filterBy="#{cliente.endereco.numero}">
 					<f:facet name="header">
 						<h:outputText value="Número" />
 					</f:facet>
 					<h:outputText value="#{cliente.endereco.numero}" />
 				</p:column>
-				<p:column width="90">
+				<p:column width="90" filterBy="#{cliente.endereco.endereco}">
 					<f:facet name="header">
 						<h:outputText value="CEP" />
 					</f:facet>
