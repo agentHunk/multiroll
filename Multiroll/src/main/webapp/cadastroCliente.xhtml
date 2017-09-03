@@ -37,7 +37,7 @@
 							<p:outputLabel value="Nome Fantasia:" />
 							<p:inputText maxlength="80" value="#{clienteController.cliente.nomeFantasia}" />
 							<p:outputLabel value="Inscrição Estadual" />
-							<p:inputText maxlength="80"	value="#{clienteController.cliente.nomeFantasia}" />
+							<p:inputText maxlength="80"	value="#{clienteController.cliente.ie}" />
 							<p:outputLabel value="Responsável:" />
 							<p:inputText maxlength="60"
 								value="#{clienteController.cliente.nomeFuncionario}" />
@@ -98,17 +98,18 @@
 							styleClass="panelgrid-noborder"
 							columnClasses="ui-grid-col-2, ui-grid-col-6">
 
-							<p:outputLabel value="Endereço:" />
+							<p:outputLabel value="Endereço: *" />
 							<p:inputText required="true" maxlength="50"
 								requiredMessage="O campo Endereço é obrigatorio!"
 								value="#{clienteController.endereco.endereco}" />
 							<p:outputLabel value="Complemento:" />
 							<p:inputText maxlength="100" value="#{clienteController.endereco.complemento}" />
+							<p:outputLabel value="Bairro:" />
+							<p:inputText maxlength="100" value="#{clienteController.endereco.bairro}" />
 							<p:outputLabel value="Número:" />
 							<p:inputText maxlength="12" value="#{clienteController.endereco.numero}" />
 							<p:outputLabel for="cep" value="CEP:" />
-							<p:inputMask id="cep" maxlength="10" mask="99.999-999"
-								value="#{clienteController.endereco.cep}" />
+							<p:inputMask id="cep" maxlength="10" mask="99.999-999" value="#{clienteController.endereco.cep}" />
 							<p:outputLabel value="Cidade: *" />
 							<p:selectOneMenu required="true"
 								requiredMessage="O campo Cidade é obrigatorio!"
@@ -146,6 +147,12 @@
 						<h:outputText value="Nome Fantasia" />
 					</f:facet>
 					<h:outputText value="#{cliente.nomeFantasia}" />
+				</p:column>
+				<p:column width="110">
+					<f:facet name="header">
+						<h:outputText value="Inscrição Estadual" />
+					</f:facet>
+					<h:outputText value="#{cliente.ie}" />
 				</p:column>
 				<p:column width="200">
 					<f:facet name="header">
@@ -196,6 +203,12 @@
 						<h:outputText value="Complemento" />
 					</f:facet>
 					<h:outputText value="#{cliente.endereco.complemento}" />
+				</p:column>
+				<p:column width="200">
+					<f:facet name="header">
+						<h:outputText value="Bairro" />
+					</f:facet>
+					<h:outputText value="#{cliente.endereco.bairro}" />
 				</p:column>
 				<p:column width="80">
 					<f:facet name="header">
