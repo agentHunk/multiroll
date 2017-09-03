@@ -10,6 +10,7 @@ public class Cliente {
 	private Long id;
 	private String razaoSocial;
 	private String nomeFantasia;
+	private String ie;
 	private String nomeFuncionario;
 	private String cpf;
 	private String cnpj;
@@ -20,12 +21,13 @@ public class Cliente {
 		super();
 	}
 
-	public Cliente(Long id, String razaoSocial, String nomeFantasia, String nomeFuncionario, String cpf, String cnpj,
-			Endereco endereco, Contato contato) {
+	public Cliente(Long id, String razaoSocial, String nomeFantasia, String ie, String nomeFuncionario, String cpf,
+			String cnpj, Endereco endereco, Contato contato) {
 		super();
 		this.id = id;
 		this.razaoSocial = razaoSocial;
 		this.nomeFantasia = nomeFantasia;
+		this.ie = ie;
 		this.nomeFuncionario = nomeFuncionario;
 		this.cpf = cpf;
 		this.cnpj = cnpj;
@@ -55,6 +57,14 @@ public class Cliente {
 
 	public void setNomeFantasia(String nomeFantasia) {
 		this.nomeFantasia = nomeFantasia;
+	}
+
+	public String getIe() {
+		return ie;
+	}
+
+	public void setIe(String ie) {
+		this.ie = ie;
 	}
 
 	public String getNomeFuncionario() {
@@ -106,6 +116,7 @@ public class Cliente {
 		result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
 		result = prime * result + ((endereco == null) ? 0 : endereco.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((ie == null) ? 0 : ie.hashCode());
 		result = prime * result + ((nomeFantasia == null) ? 0 : nomeFantasia.hashCode());
 		result = prime * result + ((nomeFuncionario == null) ? 0 : nomeFuncionario.hashCode());
 		result = prime * result + ((razaoSocial == null) ? 0 : razaoSocial.hashCode());
@@ -146,6 +157,11 @@ public class Cliente {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
+		if (ie == null) {
+			if (other.ie != null)
+				return false;
+		} else if (!ie.equals(other.ie))
+			return false;
 		if (nomeFantasia == null) {
 			if (other.nomeFantasia != null)
 				return false;
@@ -166,7 +182,7 @@ public class Cliente {
 
 	@Override
 	public String toString() {
-		return "Cliente [id=" + id + ", razaoSocial=" + razaoSocial + ", nomeFantasia=" + nomeFantasia
+		return "Cliente [id=" + id + ", razaoSocial=" + razaoSocial + ", nomeFantasia=" + nomeFantasia + ", ie=" + ie
 				+ ", nomeFuncionario=" + nomeFuncionario + ", cpf=" + cpf + ", cnpj=" + cnpj + ", endereco=" + endereco
 				+ ", contato=" + contato + "]";
 	}

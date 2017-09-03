@@ -13,10 +13,11 @@
 
 			<p:toolbar>
 				<p:toolbarGroup>
-					<p:commandButton update="formulario formlista" value="Salvar" id="btnSalvar"
-						actionListener="#{clienteController.salvar}" />
+					<p:commandButton update="formulario formlista" value="Salvar"
+						id="btnSalvar" actionListener="#{clienteController.salvar}" />
 
-					<p:commandButton value="Limpar" update="formulario" action="cadastroCliente.xhtml" immediate="true"
+					<p:commandButton value="Limpar" update="formulario"
+						action="cadastroCliente.xhtml" immediate="true"
 						actionListener="#{clienteController.limparCampos}" />
 				</p:toolbarGroup>
 			</p:toolbar>
@@ -32,18 +33,20 @@
 							<p:outputLabel value="Razão Social: *" />
 							<p:inputText required="true"
 								requiredMessage="O campo Razão Social é obrigatorio!"
-								value="#{clienteController.cliente.razaoSocial}" maxlength="80"/>
-							<p:outputLabel value="Nome Fantasia: *" />
-							<p:inputText required="true" maxlength="80"
-								requiredMessage="O campo Nome Fantasia é obrigatorio!"
-								value="#{clienteController.cliente.nomeFantasia}" />
-							<p:outputLabel value="Responsável: *" />
-							<p:inputText maxlength="60" value="#{clienteController.cliente.nomeFuncionario}" />
-							<p:outputLabel for="cpf" value="CPF: *" />
+								value="#{clienteController.cliente.razaoSocial}" maxlength="80" />
+							<p:outputLabel value="Nome Fantasia:" />
+							<p:inputText maxlength="80" value="#{clienteController.cliente.nomeFantasia}" />
+							<p:outputLabel value="Inscrição Estadual" />
+							<p:inputText maxlength="80"	value="#{clienteController.cliente.nomeFantasia}" />
+							<p:outputLabel value="Responsável:" />
+							<p:inputText maxlength="60"
+								value="#{clienteController.cliente.nomeFuncionario}" />
+							<p:outputLabel for="cpf" value="CPF:" />
 							<p:inputMask id="cpf" maxlength="14" mask="999.999.999-99"
 								value="#{clienteController.cliente.cpf}" />
-							<p:outputLabel for="cnpj" value="CNPJ: *" />
-							<p:inputMask id="cnpj" value="#{clienteController.cliente.cnpj}" maxlength="18" mask="99.999.999/9999-99"/>
+							<p:outputLabel for="cnpj" value="CNPJ:" />
+							<p:inputMask id="cnpj" value="#{clienteController.cliente.cnpj}"
+								maxlength="18" mask="99.999.999/9999-99" />
 						</p:panelGrid>
 					</p:tab>
 
@@ -54,27 +57,38 @@
 							columnClasses="ui-grid-col-2, ui-grid-col-6">
 
 							<p:outputLabel for="tel" value="Telefone Fixo:" />
-							<p:inputMask id="tel" size="70" maxlength="17" mask="(99)9999-9999"
+							<p:inputMask id="tel" size="70" maxlength="17"
+								mask="(99)9999-9999"
 								value="#{clienteController.contato.telFixo}" />
-							
+
 							<p:outputLabel for="tel2" value="Telefone Fixo 2:" />
-							<p:inputMask id="tel2" value="#{clienteController.contato.telFixo2}" maxlength="17" mask="(99)9999-9999"/>
-							
+							<p:inputMask id="tel2"
+								value="#{clienteController.contato.telFixo2}" maxlength="17"
+								mask="(99)9999-9999" />
+
 							<p:outputLabel for="cel" value="Celular:" />
-							<p:inputMask id="cel" maxlength="17" mask="(99)99999-9999" value="#{clienteController.contato.telCel}" />
-							
+							<p:inputMask id="cel" maxlength="17" mask="(99)99999-9999"
+								value="#{clienteController.contato.telCel}" />
+
 							<p:outputLabel for="cel2" value="Celular:" />
-							<p:inputMask id="cel2" value="#{clienteController.contato.telCel2}" mask="(99)99999-9999" maxlength="17"/>
-							
+							<p:inputMask id="cel2"
+								value="#{clienteController.contato.telCel2}"
+								mask="(99)99999-9999" maxlength="17" />
+
 							<p:outputLabel for="what" value="WhatsApp:" />
-							<p:inputMask id="what" value="#{clienteController.contato.whatsApp}" mask="(99)99999-9999" maxlength="17"/>
-							
+							<p:inputMask id="what"
+								value="#{clienteController.contato.whatsApp}"
+								mask="(99)99999-9999" maxlength="17" />
+
 							<p:outputLabel value="Email:" />
-							<p:inputText maxlength="65" value="#{clienteController.contato.email}" />
+							<p:inputText maxlength="65"
+								value="#{clienteController.contato.email}" />
 							<p:outputLabel value="Email 2:" />
-							<p:inputText value="#{clienteController.contato.email2}" maxlength="65"/>
+							<p:inputText value="#{clienteController.contato.email2}"
+								maxlength="65" />
 							<p:outputLabel value="Observação" />
-							<p:inputText value="#{clienteController.contato.observacao}" maxlength="200"/>
+							<p:inputText value="#{clienteController.contato.observacao}"
+								maxlength="200" />
 						</p:panelGrid>
 					</p:tab>
 
@@ -89,13 +103,9 @@
 								requiredMessage="O campo Endereço é obrigatorio!"
 								value="#{clienteController.endereco.endereco}" />
 							<p:outputLabel value="Complemento:" />
-							<p:inputText required="true" maxlength="100"
-								requiredMessage="O campo Complemento é obrigatorio!"
-								value="#{clienteController.endereco.complemento}" />
+							<p:inputText maxlength="100" value="#{clienteController.endereco.complemento}" />
 							<p:outputLabel value="Número:" />
-							<p:inputText required="true" maxlength="12"
-								requiredMessage="O campo Número é obrigatorio!"
-								value="#{clienteController.endereco.numero}" />
+							<p:inputText maxlength="12" value="#{clienteController.endereco.numero}" />
 							<p:outputLabel for="cep" value="CEP:" />
 							<p:inputMask id="cep" maxlength="10" mask="99.999-999"
 								value="#{clienteController.endereco.cep}" />
@@ -116,9 +126,9 @@
 			</div>
 		</h:form>
 		<h:form id="formlista">
-			<p:dataTable value="#{clienteController.lista}" paginator="true" scrollable="true" scrollWidth="100%" scrollHeight="auto"
-				rows="10" var="cliente" border="1"
-				emptyMessage="Nenhum Registro Encontrado">
+			<p:dataTable value="#{clienteController.lista}" paginator="true"
+				scrollable="true" scrollWidth="100%" scrollHeight="auto" rows="10"
+				var="cliente" border="1" emptyMessage="Nenhum Registro Encontrado">
 				<p:column width="50">
 					<f:facet name="header">
 						<h:outputText value="Id" style="width=20%" />
