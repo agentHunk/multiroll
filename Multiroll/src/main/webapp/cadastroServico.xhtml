@@ -50,19 +50,19 @@
 			<p:dataTable value="#{servicoController.lista}" paginator="true"
 				rows="10" var="servico" border="1"
 				emptyMessage="Nenhum Registro Encontrado">
-				<p:column>
+				<p:column width="120" filterBy="#{servico.id}">
 					<f:facet name="header">
 						<h:outputText value="Id" style="width=20%" />
 					</f:facet>
 					<h:outputText value="#{servico.id}" />
 				</p:column>
-				<p:column>
+				<p:column width="430" filterBy="#{servico.nome}">
 					<f:facet name="header">
 						<h:outputText value="Nome" />
 					</f:facet>
 					<h:outputText value="#{servico.nome}" />
 				</p:column>
-				<p:column>
+				<p:column width="300" filterBy="#{servico.categoria.nome}">
 					<f:facet name="header">
 						<h:outputText value="Categoria" />
 					</f:facet>

@@ -49,25 +49,25 @@
 			<p:dataTable value="#{cidadeController.lista}" paginator="true"
 				rows="10" var="cidade" border="1"
 				emptyMessage="Nenhum Registro Encontrado">
-				<p:column>
+				<p:column width="120" filterBy="#{cidade.id}">
 					<f:facet name="header">
 						<h:outputText value="Id" style="width=20%" />
 					</f:facet>
 					<h:outputText value="#{cidade.id}" />
 				</p:column>
-				<p:column>
+				<p:column width="400" filterBy="#{cidade.nome}">
 					<f:facet name="header">
 						<h:outputText value="Nome" />
 					</f:facet>
 					<h:outputText value="#{cidade.nome}" />
 				</p:column>
-				<p:column>
+				<p:column width="200" filterBy="#{cidade.estado.nome}">
 					<f:facet name="header">
 						<h:outputText value="Estado" />
 					</f:facet>
 					<h:outputText value="#{cidade.estado.nome}" />
 				</p:column>
-				<p:column>
+				<p:column width="120" filterBy="#{cidade.estado.uf}">
 					<f:facet name="header">
 						<h:outputText value="UF" />
 					</f:facet>

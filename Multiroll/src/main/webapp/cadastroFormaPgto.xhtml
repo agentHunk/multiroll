@@ -43,19 +43,19 @@
 			<p:dataTable value="#{formaPgtoController.lista}" paginator="true"
 				rows="10" var="formaPgto" border="1"
 				emptyMessage="Nenhum Registro Encontrado">
-				<p:column>
+				<p:column width="120" filterBy="#{formaPgto.id}">
 					<f:facet name="header">
 						<h:outputText value="Id" style="width=20%" />
 					</f:facet>
 					<h:outputText value="#{formaPgto.id}" />
 				</p:column>
-				<p:column>
+				<p:column width="500" filterBy="#{formaPgto.nome}">
 					<f:facet name="header">
 						<h:outputText value="Nome" />
 					</f:facet>
 					<h:outputText value="#{formaPgto.nome}" />
 				</p:column>
-				<p:column>
+				<p:column width="150" filterBy="#{formaPgto.sigla}">
 					<f:facet name="header">
 						<h:outputText value="Sigla" />
 					</f:facet>

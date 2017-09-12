@@ -150,7 +150,7 @@
 				</p:column>
 				<p:column width="110" filterBy="#{cliente.ie}">
 					<f:facet name="header">
-						<h:outputText value="Inscrição Estadual" />
+						<h:outputText value="Insc. Estadual" />
 					</f:facet>
 					<h:outputText value="#{cliente.ie}" />
 				</p:column>
@@ -216,21 +216,21 @@
 					</f:facet>
 					<h:outputText value="#{cliente.endereco.numero}" />
 				</p:column>
-				<p:column width="90" filterBy="#{cliente.endereco.endereco}">
+				<p:column width="90" filterBy="#{cliente.endereco.cep}">
 					<f:facet name="header">
 						<h:outputText value="CEP" />
 					</f:facet>
 					<h:outputText value="#{cliente.endereco.cep}" />
 				</p:column>
 				<!-- 				CIDADE -->
-				<p:column width="200">
+				<p:column width="200" filterBy="#{cliente.endereco.cidade.nome}">
 					<f:facet name="header">
 						<h:outputText value="Cidade" />
 					</f:facet>
 					<h:outputText value="#{cliente.endereco.cidade.nome}" />
 				</p:column>
 				<!-- 				ESTADO -->
-				<p:column width="30">
+				<p:column width="50" filterBy="#{cliente.endereco.cidade.estado.uf}">
 					<f:facet name="header">
 						<h:outputText value="UF" />
 					</f:facet>
