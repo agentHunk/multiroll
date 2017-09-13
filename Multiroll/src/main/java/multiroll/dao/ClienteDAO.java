@@ -84,12 +84,13 @@ public class ClienteDAO {
 				+ "    cli.CLI_NOME_FUNC AS funcionario, cli.CLI_CPF AS cpf, cli.CLI_CNPJ AS cnpj,\n"
 				+ "    con.CON_ID AS idcon, con.CON_FIXO AS fixo, con.CON_FIXO2 AS fixo2, con.CON_CELULAR AS cel, \n"
 				+ "    con.CON_CELULAR2 AS cel2, con.CON_WHATSAPP AS whats, con.CON_EMAIL AS email, con.CON_EMAIL2 AS email2, con.CON_OBSERVACAO AS conobs,\n"
-				+ "    e.END_ID AS idend, e.END_ENDERECO AS endereco, e.END_COMPLEMENTO AS comp, e.END_NUMERO AS num, e.END_CEP AS cep, e.END_OBSERVACAO AS endobs,\n"
+				+ "    e.END_ID AS idend, e.END_ENDERECO AS endereco, e.END_COMPLEMENTO AS comp, e.END_BAIRRO AS bairro, e.END_NUMERO AS num, e.END_CEP AS cep, e.END_OBSERVACAO AS endobs,\n"
 				+ "    ci.CID_ID AS idcid, ci.CID_NOME AS cidnome, est.EST_ID AS idest, est.EST_NOME AS nomest, est.EST_UF AS uf\n"
 				+ "FROM Enderecos e \n" + "    INNER JOIN Clientes cli ON cli.CLI_ID = e.END_IDCLI\n"
 				+ "    INNER JOIN Contatos con ON cli.CLI_ID = con.CON_IDCLI\n"
 				+ "    INNER JOIN Cidades ci ON e.END_IDCID = ci.CID_ID\n"
-				+ "    INNER JOIN Estados est ON est.EST_ID = ci.CID_IDEST\n" + "WHERE"
+				+ "    INNER JOIN Estados est ON est.EST_ID = ci.CID_IDEST\n"
+				+ "WHERE"
 				+ "	   cli.CLI_EXCLUIDO IS NULL ORDER BY cli.CLI_RAZAO";
 
 		PreparedStatement ps = conn.prepareStatement(sql);
@@ -111,6 +112,7 @@ public class ClienteDAO {
 			endereco.setId(rs.getLong("idend"));
 			endereco.setComplemento(rs.getString("comp"));
 			endereco.setEndereco(rs.getString("endereco"));
+			endereco.setBairro(rs.getString("bairro"));
 			endereco.setNumero(rs.getString("num"));
 			endereco.setCep(rs.getString("cep"));
 			endereco.setObservacao(rs.getString("endobs"));
