@@ -6,7 +6,7 @@
 	template="/WEB-INF/templates/Layout.xhtml">
 
 	<ui:define name="corpo">
-		<h1 class="aw-page-title">Cadastrar Serviço</h1>
+		<h1 class="aw-page-title">Cadastrar Usuário</h1>
 
 		<h:form id="formulario">
 			<p:messages />
@@ -25,7 +25,7 @@
 				<p:panelGrid id="capaPanel" columns="2" layout="grid"
 					style="margin-top: 20px; margin-bottom: 40px"
 					styleClass="panelgrid-noborder"
-					columnClasses="ui-grid-col-1, ui-grid-col-11">
+					columnClasses="ui-grid-col-2, ui-grid-col-10">
 
 					<p:outputLabel value="Nome *" />
 					<p:inputText value="#{usuarioController.usuario.login}" maxlength="45"
