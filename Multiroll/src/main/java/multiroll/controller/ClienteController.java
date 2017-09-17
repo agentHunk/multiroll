@@ -113,6 +113,8 @@ public class ClienteController implements Serializable {
 					exibirMensagem("Inclusão realizada  com sucesso !");
 
 				} else {
+					cliente.setCpf(cpf);
+					cliente.setCnpj(cnpj);
 
 					daoCliente.alterar(cliente);
 
