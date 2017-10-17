@@ -1,0 +1,66 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/Layout.xhtml">
+
+	<ui:define name="corpo">
+		<h1 class="aw-page-title">Lista de Máquinas</h1>
+
+		<h:form id="formulario">
+
+			<p:messages />
+
+			<p:toolbar>
+				<p:toolbarGroup>
+					<p:commandButton update="formulario formlista" value="Cadastrar"
+						id="btnSalvar" actionListener="#{maquinaController.salvar}" />
+
+					<p:commandButton value="Limpar" update="formulario"
+						actionListener="#{maquinaController.limparCampos}"/>
+				</p:toolbarGroup>
+			</p:toolbar>
+		</h:form>
+		<h:form id="formlista">
+			<p:dataTable id="tabela" value="#{maquinaController.lista}"
+				paginator="true" rows="10" var="maquina" border="1"
+				emptyMessage="Nenhum Registro Encontrado">
+				<p:column width="150" filterBy="#{maquina.id}">
+					<f:facet name="header">
+						<h:outputText value="Id" style="width=20%" />
+					</f:facet>
+					<h:outputText value="#{maquina.id}" />
+				</p:column>
+				<p:column width="600" filterBy="#{maquina.marca}">
+					<f:facet name="header">
+						<h:outputText value="Marca" />
+					</f:facet>
+					<h:outputText value="#{maquina.marca}" />
+				</p:column>
+				<p:column width="600" filterBy="#{maquina.modelo}">
+					<f:facet name="header">
+						<h:outputText value="Modelo" />
+					</f:facet>
+					<h:outputText value="#{maquina.modelo}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Operação" />
+					</f:facet>
+					<h:commandButton value="Excluir" update="formlista"
+						action="#{maquinaController.excluir}">
+						<f:setPropertyActionListener value="#{maquina}"
+							target="#{maquinaController.maquina}" />
+					</h:commandButton>
+					<h:commandButton value="Editar"
+						action="#{maquinaController.prepararParaEditar}">
+						<f:setPropertyActionListener value="#{maquina}"
+							target="#{maquinaController.maquina}" />
+					</h:commandButton>
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
