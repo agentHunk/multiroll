@@ -6,7 +6,7 @@
 	template="/WEB-INF/templates/Layout.xhtml">
 
 	<ui:define name="corpo">
-		<h1 class="aw-page-title">Lista de Máquinas</h1>
+		<h1 class="aw-page-title">Cadastrar Máquinas</h1>
 
 		<h:form id="formulario">
 
@@ -14,50 +14,98 @@
 
 			<p:toolbar>
 				<p:toolbarGroup>
-					<p:commandButton update="formulario formlista" value="Cadastrar"
+					<p:commandButton update="formulario formlista" value="Salvar"
 						id="btnSalvar" actionListener="#{maquinaController.salvar}" />
 
 					<p:commandButton value="Limpar" update="formulario"
 						actionListener="#{maquinaController.limparCampos}"/>
 				</p:toolbarGroup>
 			</p:toolbar>
+
+			<div class="ui-fluid">
+				<p:panelGrid id="capaPanel" columns="2" layout="grid"
+					style="margin-top: 20px; margin-bottom: 40px"
+					styleClass="panelgrid-noborder"
+					columnClasses="ui-grid-col-2, ui-grid-col-10">
+
+					<p:outputLabel value="Marca *" />
+					<p:inputText value="#{maquinaController.maquina.marca}"
+						required="true" requiredMessage="O campo marca é obrigatorio!" maxlength="45" />
+					<p:outputLabel value="Modelo *" />
+					<p:inputText value="#{maquinaController.maquina.modelo}"
+						required="true" requiredMessage="O campo marca é obrigatorio!" maxlength="45" />
+				</p:panelGrid>
+				<p:panelGrid id="capaPanel2" columns="2" layout="grid"
+					style="margin-top: 20px; margin-bottom: 40px"
+					styleClass="panelgrid-noborder"
+					columnClasses="ui-grid-col-2, ui-grid-col-10">
+					
+					<p:outputLabel value="Quantidade *" />
+					<p:inputText value="#{maquinaController.maquinaItem.quantidade}"
+						required="true" requiredMessage="O campo Quantidade é obrigatorio!" maxlength="45" />
+					<p:outputLabel value="Descriçao*" />
+					<p:inputText value="#{maquinaController.maquinaItem.descricao}"
+						required="true" requiredMessage="O campo descrição é obrigatorio!" maxlength="45" />
+					<p:outputLabel value="Diametro*" />
+					<p:inputText value="#{maquinaController.maquinaItem.diametro}"
+						required="true" requiredMessage="O campo diametro é obrigatorio!" maxlength="45" />
+					<p:outputLabel value="Comprimento*" />
+					<p:inputText value="#{maquinaController.maquinaItem.comprimento}"
+						required="true" requiredMessage="O campo comprimento é obrigatorio!" maxlength="45" />
+					<p:outputLabel value="Revestimento*" />
+					<p:inputText value="#{maquinaController.maquinaItem.revestimento}"
+						required="true" requiredMessage="O campo comprimento é obrigatorio!" maxlength="45" />
+					<p:outputLabel value="Eixo Novo*" />
+					<p:inputText value="#{maquinaController.maquinaItem.eixo}"
+						required="true" requiredMessage="O campo Eixo Novo é obrigatorio!" maxlength="45" />
+					</p:panelGrid>
+					<p:toolbar>
+				<p:toolbarGroup>
+					<p:commandButton update="capaPanel2" value="Adicionar"
+						id="btnAdicionar" actionListener="#{maquinaController.adicionarItem}" />
+				</p:toolbarGroup>
+			</p:toolbar>
+			</div>
 		</h:form>
 		<h:form id="formlista">
-			<p:dataTable id="tabela" value="#{maquinaController.lista}"
-				paginator="true" rows="10" var="maquina" border="1"
-				emptyMessage="Nenhum Registro Encontrado">
-				<p:column width="150" filterBy="#{maquina.id}">
+			<p:dataTable id="tabela" value="#{maquinaController.listarItem}"
+				paginator="true" rows="10" var="categoria" border="1"
+				emptyMessage="Nenhum Item Adicionado">
+				<p:column width="150">
 					<f:facet name="header">
 						<h:outputText value="Id" style="width=20%" />
 					</f:facet>
-					<h:outputText value="#{maquina.id}" />
+					<h:outputText value="#{maquinaItem.quantidade}" />
 				</p:column>
-				<p:column width="600" filterBy="#{maquina.marca}">
+				<p:column width="600">
 					<f:facet name="header">
-						<h:outputText value="Marca" />
+						<h:outputText value="Descrição" />
 					</f:facet>
-					<h:outputText value="#{maquina.marca}" />
+					<h:outputText value="#{maquinaItem.descricao}" />
 				</p:column>
-				<p:column width="600" filterBy="#{maquina.modelo}">
+				<p:column width="600">
 					<f:facet name="header">
-						<h:outputText value="Modelo" />
+						<h:outputText value="Diâmetro" />
 					</f:facet>
-					<h:outputText value="#{maquina.modelo}" />
+					<h:outputText value="#{maquinaItem.diametro}" />
 				</p:column>
-				<p:column>
+				<p:column width="600">
 					<f:facet name="header">
-						<h:outputText value="Operação" />
+						<h:outputText value="Comprimento" />
 					</f:facet>
-					<h:commandButton value="Excluir" update="formlista"
-						action="#{maquinaController.excluir}">
-						<f:setPropertyActionListener value="#{maquina}"
-							target="#{maquinaController.maquina}" />
-					</h:commandButton>
-					<h:commandButton value="Editar"
-						action="#{maquinaController.prepararParaEditar}">
-						<f:setPropertyActionListener value="#{maquina}"
-							target="#{maquinaController.maquina}" />
-					</h:commandButton>
+					<h:outputText value="#{maquinaItem.comprimento}" />
+				</p:column>
+				<p:column width="600">
+					<f:facet name="header">
+						<h:outputText value="Revestimento" />
+					</f:facet>
+					<h:outputText value="#{maquinaItem.revestimento}" />
+				</p:column>
+				<p:column width="600">
+					<f:facet name="header">
+						<h:outputText value="Eixo Novo" />
+					</f:facet>
+					<h:outputText value="#{maquinaItem.eixo}" />
 				</p:column>
 			</p:dataTable>
 		</h:form>
